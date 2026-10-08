@@ -837,6 +837,51 @@ body.modal-open {
 
 .modal-status:empty { display: none; }
 
+/* Long-form, distraction-free story reading. */
+.story-overlay {
+  position: fixed;
+  z-index: 1500;
+  inset: 0;
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 74px);
+  background: #F1EBDD;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+.story-overlay.active { opacity: 1; visibility: visible; }
+.story-overlay-inner { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.35fr); gap: clamp(34px, 7vw, 110px); width: min(100%, 1280px); min-height: 100%; margin: 0 auto; align-items: center; }
+.story-portrait-wrap { position: relative; align-self: center; }
+.story-portrait-wrap::before { content: ''; position: absolute; inset: -18px 16px 18px -18px; border: 1px solid #C4A36A; }
+.story-portrait-wrap img { position: relative; display: block; width: 100%; max-height: 74vh; object-fit: cover; object-position: center 24%; box-shadow: 0 22px 55px rgba(43, 43, 30, .16); }
+.story-reading { max-width: 670px; padding: 16px 0 30px; color: #31362d; }
+.story-reading h2 { margin: 4px 0 18px; color: #202018; font: 400 clamp(48px, 6vw, 84px)/.95 'Lobster', cursive; }
+.story-reading p { max-width: 660px; margin: 0 0 21px; font-size: 17px; line-height: 1.9; }
+.story-reading .story-lead { color: #51604d; font: italic clamp(20px, 2.2vw, 30px)/1.45 'Playfair Display', serif; }
+.story-placeholder { color: #6d695e; }
+.story-rule { width: 78px; height: 1px; margin: 25px 0 28px; background: #C4A36A; }
+.story-close { position: fixed; z-index: 2; top: clamp(17px, 3vw, 38px); right: clamp(20px, 4vw, 58px); display: grid; place-items: center; width: 52px; height: 52px; padding: 0; border: 1px solid #42533F; border-radius: 50%; color: #42533F; background: rgba(251, 248, 241, .88); font: 400 42px/1 'Inter', sans-serif; cursor: pointer; transition: background .22s ease, color .22s ease, transform .22s ease; }
+.story-close:hover { color: #D8B86F; background: #42533F; transform: rotate(90deg); }
+body.story-open { overflow: hidden; }
+
+/* Shared action language: almond surface, green border, gold on green hover. */
+.btn-dark, .btn-outline, .hero-welcome, .btn-modal-submit {
+  color: #42533F;
+  background: #FBF8F1;
+  border: 1.5px solid #42533F;
+  box-shadow: none;
+}
+
+.btn-dark:hover, .btn-outline:hover, .hero-welcome:hover, .btn-modal-submit:hover {
+  color: #D8B86F;
+  background: #42533F;
+  border-color: #42533F;
+  box-shadow: 0 10px 22px rgba(48, 70, 53, .17);
+}
+
+.hero-welcome span, .hero-welcome:hover span { color: inherit; }
+
 /* Editorial hero: a centered portrait, with the wedding details held inside it. */
 .hero-panel {
   background: #e9e1d1;
@@ -1115,6 +1160,23 @@ body.modal-open {
   .venue-title-card { top: 29px; left: 0; padding: 11px 13px; }
   .venue-title-card strong { font-size: 19px; }
   .venue-note strong { font-size: 18px; }
+}
+
+/* Keep the shared button treatment consistent, including the hero bar. */
+.hero-bottom-bar .btn-dark { color: #42533F; background: #FBF8F1; border: 1.5px solid #42533F; }
+.hero-bottom-bar .btn-dark:hover { color: #D8B86F; background: #42533F; border-color: #42533F; }
+.hero-welcome { color: #42533F; background: #FBF8F1; border: 1.5px solid #42533F; }
+.hero-welcome:hover { color: #D8B86F; background: #42533F; border-color: #42533F; }
+
+@media (max-width: 760px) {
+  .story-overlay { padding: 84px 24px 34px; }
+  .story-overlay-inner { display: block; }
+  .story-portrait-wrap { width: min(74%, 340px); margin: 0 auto 42px; }
+  .story-portrait-wrap img { max-height: none; aspect-ratio: 4 / 5; }
+  .story-reading { margin: 0 auto; }
+  .story-reading h2 { font-size: 54px; }
+  .story-reading p { font-size: 16px; line-height: 1.8; }
+  .story-close { width: 45px; height: 45px; font-size: 36px; }
 }
 
 :focus-visible {

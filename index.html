@@ -18,7 +18,7 @@
       <div class="hero-image hero-venue" aria-hidden="true"></div>
       <div class="hero-image hero-couple" aria-hidden="true"></div>
       <div class="hero-overlay"></div>
-      <img class="hero-floral" src="assets/florals/peony-corner.webp" alt="" aria-hidden="true">
+      <img class="hero-floral" src="assets/florals/peony-corner-yellow.webp" alt="" aria-hidden="true">
 
       <!-- Menu Button -->
       <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sideNav" aria-expanded="false">
@@ -40,7 +40,7 @@
           <i aria-hidden="true"></i>
           <span>North Hatley, Québec</span>
         </div>
-        <a class="hero-welcome" href="#section-story" onclick="scrollToSection('story'); return false;"><strong>Bienvenue</strong><span>Entrer dans notre histoire</span></a>
+        <a class="hero-welcome" href="#notre-histoire" onclick="openStory(); return false;"><strong>Découvrir notre histoire</strong><span>Sarah &amp; Patrick</span></a>
       </div>
 
       <!-- Bottom Bar -->
@@ -229,7 +229,7 @@
   <nav class="side-nav" id="sideNav" aria-label="Navigation principale" inert>
     <button class="nav-close" onclick="closeMenu()" aria-label="Fermer le menu">&times;</button>
     <a href="#" class="nav-link" onclick="showPage('home'); closeMenu(); return false;">Accueil</a>
-    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('story'); return false;">Notre histoire</a>
+    <a href="#notre-histoire" class="nav-link" onclick="closeMenu(); openStory(); return false;">Notre histoire</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('schedule'); return false;">Lieu</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('programme'); return false;">Programme</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('menu'); return false;">Menu</a>
@@ -238,6 +238,22 @@
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('app'); return false;">Photos</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('contact'); return false;">Contact</a>
   </nav>
+
+  <!-- Full-screen story page, ready for the couple's longer text. -->
+  <section class="story-overlay" id="storyOverlay" role="dialog" aria-modal="true" aria-labelledby="storyOverlayTitle" inert>
+    <button class="story-close" type="button" onclick="closeStory()" aria-label="Fermer Notre histoire">&times;</button>
+    <div class="story-overlay-inner">
+      <div class="story-portrait-wrap"><img src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick"></div>
+      <article class="story-reading" id="notre-histoire">
+        <p class="section-kicker">Sarah &amp; Patrick</p>
+        <h2 id="storyOverlayTitle">Notre histoire</h2>
+        <p class="story-lead">Le début d’un nouveau chapitre, entourés des personnes qui comptent le plus.</p>
+        <div class="story-rule" aria-hidden="true"></div>
+        <p>Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
+        <p class="story-placeholder">Cet espace plein écran est prêt à accueillir votre histoire complète, vos souvenirs et les mots que vous souhaitez partager avec vos invités.</p>
+      </article>
+    </div>
+  </section>
 
   <!-- RSVP Modal -->
   <div class="modal-overlay" id="rsvpModal" inert>

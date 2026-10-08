@@ -4,6 +4,7 @@ const menuButton = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideNav');
 const navOverlay = document.getElementById('navOverlay');
 const rsvpModal = document.getElementById('rsvpModal');
+const storyOverlay = document.getElementById('storyOverlay');
 const guestName = document.getElementById('guestName');
 const rsvpStatus = document.getElementById('rsvpStatus');
 const layout = document.querySelector('.layout');
@@ -95,6 +96,27 @@ function closeRSVP() {
   previousFocus?.focus();
 }
 
+function openStory() {
+  closeRSVP();
+  previousFocus = document.activeElement;
+  storyOverlay.inert = false;
+  layout.inert = true;
+  document.body.classList.add('story-open');
+  storyOverlay.classList.add('active');
+  clearTimeout(focusTimer);
+  focusTimer = setTimeout(() => storyOverlay.querySelector('.story-close').focus(), reducedMotion.matches ? 0 : 220);
+}
+
+function closeStory() {
+  clearTimeout(focusTimer);
+  if (!storyOverlay.classList.contains('active')) return;
+  storyOverlay.classList.remove('active');
+  storyOverlay.inert = true;
+  layout.inert = false;
+  document.body.classList.remove('story-open');
+  previousFocus?.focus();
+}
+
 function submitRSVP(event) {
   event.preventDefault();
   if (!guestName.value.trim()) {
@@ -129,8 +151,9 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     closeMenu();
     closeRSVP();
+    closeStory();
   }
-  const activeDialog = rsvpModal.classList.contains('active') ? rsvpModal :
+  const activeDialog = storyOverlay.classList.contains('active') ? storyOverlay : rsvpModal.classList.contains('active') ? rsvpModal :
     sideNav.classList.contains('active') ? sideNav : null;
   if (event.key !== 'Tab' || !activeDialog) return;
   const focusable = activeDialog.querySelectorAll('a[href], button, input');

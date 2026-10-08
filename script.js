@@ -1,4 +1,4 @@
-const eventDate = new Date('2027-05-15T00:00:00-04:00');
+const eventDate = new Date('2027-04-24T00:00:00-04:00');
 const contentPanel = document.getElementById('contentPanel');
 const menuButton = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideNav');
@@ -14,7 +14,7 @@ const mobileLayout = window.matchMedia('(max-width: 900px)');
 let previousFocus = null;
 let focusTimer;
 
-// The date and venue come from the project's Drive folder.
+// Official event date supplied with the updated design reference.
 function updateCountdown() {
   const now = new Date();
   const elapsed = Math.floor(Math.abs(now - eventDate) / 1000);
@@ -22,8 +22,9 @@ function updateCountdown() {
   const hours = Math.floor((elapsed % 86400) / 3600);
   const mins = Math.floor((elapsed % 3600) / 60);
   const secs = elapsed % 60;
-  document.getElementById('countdown').textContent =
-    `${days} days ${hours} hrs ${mins} mins ${secs} secs${now >= eventDate ? ' ago' : ''}`;
+  document.getElementById('countdown').textContent = now >= eventDate
+    ? 'Le grand jour est arrivé !'
+    : `${days} j · ${hours} h · ${mins} min · ${secs} s avant notre union`;
 }
 
 function openMenu() {
@@ -53,11 +54,7 @@ function showPage(pageName) {
   document.querySelectorAll('.page').forEach(page => {
     page.classList.toggle('active', page === target);
   });
-  if (mobileLayout.matches) {
-    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-  } else {
-    contentPanel.scrollTop = 0;
-  }
+  window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   handleScrollAnimations();
 }
 
@@ -67,12 +64,7 @@ function scrollToSection(sectionName) {
   }
   const section = document.getElementById(`section-${sectionName}`);
   if (!section) return;
-  if (mobileLayout.matches) {
-    section.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
-    return;
-  }
-  const offset = section.getBoundingClientRect().top - contentPanel.getBoundingClientRect().top;
-  contentPanel.scrollTo({ top: contentPanel.scrollTop + offset, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  section.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
 }
 
 function openRSVP() {
@@ -156,7 +148,7 @@ function submitRSVP(event) {
 }
 
 function handleScrollAnimations() {
-  const threshold = mobileLayout.matches ? window.innerHeight - 50 : contentPanel.getBoundingClientRect().bottom - 50;
+  const threshold = window.innerHeight - 50;
   contentPanel.querySelectorAll('.page.active .section').forEach(section => {
     if (section.getBoundingClientRect().top < threshold) {
       section.classList.add('visible');

@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sarah &amp; Patrick</title>
-  <meta name="description" content="Sarah et Patrick se marient le 15 mai 2027 au Manoir Hovey, à North Hatley, Québec.">
-  <meta name="theme-color" content="#42533F">
+  <meta name="description" content="Sarah et Patrick se marient le 24 avril 2027 au Lac Carling. Découvrez leur célébration.">
+  <meta name="theme-color" content="#004C22">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,42 +13,37 @@
 </head>
 <body>
   <div class="layout">
-    <!-- LEFT: Hero Panel -->
+    <header class="site-header">
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <div class="nav-group nav-group-left">
+          <a href="#section-date" onclick="scrollToSection('date'); return false;">Accueil</a>
+          <a href="#notre-histoire" onclick="openStory(); return false;">Notre histoire</a>
+          <a href="#section-schedule" onclick="scrollToSection('schedule'); return false;">Lieu</a>
+        </div>
+        <a class="header-brand" href="#section-date" onclick="scrollToSection('date'); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp.jpeg" alt=""></a>
+        <div class="nav-group nav-group-right">
+          <a href="#section-programme" onclick="scrollToSection('programme'); return false;">Programme</a>
+          <a href="#section-reserve" onclick="openRSVP(); return false;">Réservez</a>
+          <a href="#section-gifts" onclick="scrollToSection('gifts'); return false;">Dons</a>
+          <a href="#section-contact" onclick="scrollToSection('contact'); return false;">Contact</a>
+        </div>
+      </nav>
+      <div class="mobile-header-brand"><img src="assets/monogram-sp.jpeg" alt=""><span>Sarah &amp; Patrick</span></div>
+      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sideNav" aria-expanded="false">
+        <span class="menu-icon"><span></span><span></span><span></span></span>
+        <span class="menu-text">MENU</span>
+      </button>
+    </header>
+
+    <!-- Official ceremony photo, alternating with the couple's portrait. -->
     <div class="hero-panel" id="heroPanel">
       <div class="hero-image hero-venue" aria-hidden="true"></div>
       <div class="hero-image hero-couple" aria-hidden="true"></div>
       <div class="hero-overlay"></div>
-      <img class="hero-floral" src="assets/florals/peony-corner-yellow.webp" alt="" aria-hidden="true">
-
-      <!-- Menu Button -->
-      <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-controls="sideNav" aria-expanded="false">
-        <span class="menu-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-        <span class="menu-text">MENU</span>
-      </button>
-
-      <!-- Hero Content -->
-      <div class="hero-content">
-        <p class="hero-kicker">Nous nous marions !</p>
-        <h1 class="hero-title">Sarah & Patrick</h1>
-        <p class="hero-date">15 mai 2027</p>
-        <div class="hero-details" aria-label="Détails de l'événement">
-          <span>Manoir Hovey</span>
-          <i aria-hidden="true"></i>
-          <span>North Hatley, Québec</span>
-        </div>
-      </div>
-
-      <!-- Bottom Bar -->
-      <div class="hero-bottom-bar">
-        <button class="btn-dark hero-action hero-action-single" type="button" onclick="openRSVP()">Réservez votre place</button>
-      </div>
+      <img class="hero-monogram" src="assets/monogram-sp-transparent.png" alt="" aria-hidden="true">
     </div>
 
-    <!-- RIGHT: Content Panel -->
+    <!-- Wedding details -->
     <main class="content-panel" id="contentPanel" aria-label="Informations du mariage">
       <!-- Watercolor decoration top -->
       <div class="watercolor-top">
@@ -101,11 +96,13 @@
 
       <!-- Page: Home -->
       <div class="page active" id="page-home">
-        <div class="section section-date">
-          <p class="eyebrow">Nous nous marions</p>
-          <p class="event-date">Samedi 15 mai 2027</p>
+        <div class="section section-date" id="section-date">
+          <p class="eyebrow">Nous nous marions !</p>
+          <h1 class="intro-names">Sarah <span>&amp;</span> Patrick</h1>
+          <p class="event-date">Samedi 24 avril 2027</p>
           <p class="countdown" id="countdown"></p>
-          <p class="event-place">Manoir Hovey · North Hatley, Québec</p>
+          <p class="event-place">Lac Carling</p>
+          <p class="invitation-line">Joignez-vous à nous pour célébrer notre union.</p>
           <button class="btn-outline btn-primary" onclick="openRSVP()">Réservez votre place</button>
           <a href="#" class="view-details-link" onclick="scrollToSection('schedule'); return false;">
             Découvrir la célébration
@@ -119,16 +116,10 @@
 
         <div class="section section-schedule" id="section-schedule">
           <p class="section-kicker">Le lieu</p>
-          <p class="section-title">Manoir Hovey</p>
-          <div class="venue-editorial">
-            <img class="venue-exterior" src="assets/venue/manoir-lake-exterior.webp" alt="Vue d’ambiance d’un manoir au bord de l’eau">
-            <div class="venue-title-card"><span>Notre lieu</span><strong>Manoir<br>Hovey</strong></div>
-            <div class="venue-note"><span>North Hatley</span><strong>Québec</strong><i aria-hidden="true"></i></div>
-            <img class="venue-ceremony" src="assets/venue/manoir-ceremony-garden.webp" alt="Ambiance de cérémonie dans les jardins d’un manoir">
-          </div>
-          <p class="section-copy">Notre célébration aura lieu au Manoir Hovey, dans le magnifique village de North Hatley, au Québec.</p>
+          <p class="section-title">Lac Carling</p>
+          <figure class="venue-editorial"><img class="venue-exterior" src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du lac, arche fleurie et rangées de chaises"></figure>
+          <p class="section-copy">Notre célébration aura lieu au Lac Carling, au bord de l’eau.</p>
           <button class="btn-outline" type="button" onclick="openVenue()">Voir l’itinéraire</button>
-          <p class="venue-caption">Images d’ambiance inspirées des références du lieu.</p>
         </div>
 
         <div class="section story-section" id="section-story">
@@ -175,16 +166,16 @@
 
         <footer class="site-footer" id="section-contact">
           <span class="footer-brand">Sarah &amp; Patrick</span>
-          <span class="footer-link">15 mai 2027</span>
-          <span class="footer-link">Manoir Hovey</span>
+          <span class="footer-link">24 avril 2027</span>
+          <span class="footer-link">Lac Carling</span>
         </footer>
       </div>
 
       <!-- Page: Schedule -->
       <div class="page" id="page-schedule">
         <div class="section section-schedule-detail">
-          <p class="section-title">Manoir Hovey</p>
-          <p class="section-copy">North Hatley, Québec · 15 mai 2027</p>
+          <p class="section-title">Lac Carling</p>
+          <p class="section-copy">Samedi 24 avril 2027</p>
         </div>
       </div>
 
@@ -231,8 +222,8 @@
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('schedule'); return false;">Lieu</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('programme'); return false;">Programme</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('menu'); return false;">Menu</a>
-    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('reserve'); return false;">Réservez</a>
-    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('gifts'); return false;">Contribution aux mariés</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); openRSVP(); return false;">Réservez</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('gifts'); return false;">Dons</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('app'); return false;">Photos</a>
     <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('contact'); return false;">Contact</a>
   </nav>
@@ -257,19 +248,19 @@
   <section class="venue-overlay" id="venueOverlay" role="dialog" aria-modal="true" aria-labelledby="venueOverlayTitle" inert>
     <button class="venue-close" type="button" onclick="closeVenue()" aria-label="Fermer les informations sur le lieu">&times;</button>
     <div class="venue-overlay-inner">
-      <div class="venue-portrait-wrap"><img src="assets/venue/manoir-lake-exterior.webp" alt="Vue d’ambiance du Manoir Hovey au bord de l’eau"></div>
+      <div class="venue-portrait-wrap"><img src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du lac avec arche fleurie"></div>
       <article class="venue-reading">
         <p class="section-kicker">Le lieu</p>
-        <h2 id="venueOverlayTitle">Manoir Hovey</h2>
-        <p class="venue-lead">Notre célébration aura lieu dans le magnifique village de North Hatley, au Québec.</p>
+        <h2 id="venueOverlayTitle">Lac Carling</h2>
+        <p class="venue-lead">Notre célébration aura lieu au bord de l’eau, entourés de ceux que nous aimons.</p>
         <div class="venue-rule" aria-hidden="true"></div>
         <dl class="venue-facts">
-          <div><dt>Date</dt><dd>Samedi 15 mai 2027</dd></div>
-          <div><dt>Lieu</dt><dd>Manoir Hovey</dd></div>
-          <div><dt>Destination</dt><dd>North Hatley, Québec</dd></div>
+          <div><dt>Date</dt><dd>Samedi 24 avril 2027</dd></div>
+          <div><dt>Lieu</dt><dd>Lac Carling</dd></div>
+          <div><dt>Cadre</dt><dd>Au bord du lac</dd></div>
         </dl>
         <p class="venue-note-detail">Les informations pratiques et le déroulement de la journée seront communiqués prochainement aux invités.</p>
-        <a class="btn-outline venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Manoir+Hovey+North+Hatley+Quebec" target="_blank" rel="noopener noreferrer">Ouvrir l’itinéraire</a>
+        <a class="btn-outline venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Lac+Carling+Quebec" target="_blank" rel="noopener noreferrer">Ouvrir l’itinéraire</a>
       </article>
     </div>
   </section>
@@ -278,15 +269,15 @@
   <section class="rsvp-overlay" id="rsvpOverlay" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-describedby="rsvpDescription" inert>
     <button class="rsvp-close" type="button" onclick="closeRSVP()" aria-label="Fermer les informations de réservation">&times;</button>
     <div class="rsvp-overlay-inner">
-      <aside class="rsvp-image-wrap"><img src="assets/venue/manoir-ceremony-garden.webp" alt="Jardins d’ambiance du Manoir Hovey"></aside>
+      <aside class="rsvp-image-wrap"><img src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling"></aside>
       <article class="rsvp-reading">
         <p class="section-kicker">Sarah &amp; Patrick</p>
         <h2 id="rsvpTitle">Réservez votre place</h2>
         <p class="rsvp-lead" id="rsvpDescription">Nous avons hâte de vous accueillir pour cette journée exceptionnelle.</p>
         <dl class="rsvp-facts">
-          <div><dt>Date</dt><dd>Samedi 15 mai 2027</dd></div>
-          <div><dt>Lieu</dt><dd>Manoir Hovey</dd></div>
-          <div><dt>Destination</dt><dd>North Hatley, Québec</dd></div>
+          <div><dt>Date</dt><dd>Samedi 24 avril 2027</dd></div>
+          <div><dt>Lieu</dt><dd>Lac Carling</dd></div>
+          <div><dt>Cadre</dt><dd>Au bord du lac</dd></div>
         </dl>
         <p class="rsvp-note">Les horaires, le menu et les détails de votre invitation seront communiqués aux invités lorsque les réponses seront ouvertes.</p>
         <form id="rsvpForm" class="rsvp-form">

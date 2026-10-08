@@ -44,8 +44,7 @@
 
       <!-- Bottom Bar -->
       <div class="hero-bottom-bar">
-        <button class="btn-dark hero-action" type="button" onclick="openStory()">Découvrir notre histoire</button>
-        <button class="btn-dark hero-action" type="button" onclick="openRSVP()">Réservez votre place</button>
+        <button class="btn-dark hero-action hero-action-single" type="button" onclick="openRSVP()">Réservez votre place</button>
       </div>
     </div>
 
@@ -128,15 +127,15 @@
             <img class="venue-ceremony" src="assets/venue/manoir-ceremony-garden.webp" alt="Ambiance de cérémonie dans les jardins d’un manoir">
           </div>
           <p class="section-copy">Notre célébration aura lieu au Manoir Hovey, dans le magnifique village de North Hatley, au Québec.</p>
-          <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Manoir+Hovey+North+Hatley+Quebec" target="_blank" rel="noopener noreferrer">Voir l’itinéraire</a>
+          <button class="btn-outline" type="button" onclick="openVenue()">Voir l’itinéraire</button>
           <p class="venue-caption">Images d’ambiance inspirées des références du lieu.</p>
         </div>
 
         <div class="section story-section" id="section-story">
+          <img class="section-photo portrait story-preview-photo" src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
           <p class="section-kicker">Notre histoire</p>
           <p class="section-title">Sarah &amp; Patrick</p>
-          <button class="btn-outline btn-primary story-discover" type="button" onclick="openStory()">Découvrir notre histoire</button>
-          <img class="section-photo portrait story-preview-photo" src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
+          <button class="btn-outline story-discover" type="button" onclick="openStory()">Découvrir notre histoire</button>
         </div>
 
         <div class="section" id="section-programme">
@@ -250,6 +249,27 @@
         <div class="story-rule" aria-hidden="true"></div>
         <p>Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
         <p class="story-placeholder">Cet espace plein écran est prêt à accueillir votre histoire complète, vos souvenirs et les mots que vous souhaitez partager avec vos invités.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Full-screen venue page. -->
+  <section class="venue-overlay" id="venueOverlay" role="dialog" aria-modal="true" aria-labelledby="venueOverlayTitle" inert>
+    <button class="venue-close" type="button" onclick="closeVenue()" aria-label="Fermer les informations sur le lieu">&times;</button>
+    <div class="venue-overlay-inner">
+      <div class="venue-portrait-wrap"><img src="assets/venue/manoir-lake-exterior.webp" alt="Vue d’ambiance du Manoir Hovey au bord de l’eau"></div>
+      <article class="venue-reading">
+        <p class="section-kicker">Le lieu</p>
+        <h2 id="venueOverlayTitle">Manoir Hovey</h2>
+        <p class="venue-lead">Notre célébration aura lieu dans le magnifique village de North Hatley, au Québec.</p>
+        <div class="venue-rule" aria-hidden="true"></div>
+        <dl class="venue-facts">
+          <div><dt>Date</dt><dd>Samedi 15 mai 2027</dd></div>
+          <div><dt>Lieu</dt><dd>Manoir Hovey</dd></div>
+          <div><dt>Destination</dt><dd>North Hatley, Québec</dd></div>
+        </dl>
+        <p class="venue-note-detail">Les informations pratiques et le déroulement de la journée seront communiqués prochainement aux invités.</p>
+        <a class="btn-outline venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Manoir+Hovey+North+Hatley+Quebec" target="_blank" rel="noopener noreferrer">Ouvrir l’itinéraire</a>
       </article>
     </div>
   </section>

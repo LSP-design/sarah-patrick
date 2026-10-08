@@ -612,8 +612,17 @@ html, body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
+  html, body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .layout {
     flex-direction: column;
+    height: auto;
+    min-height: 100dvh;
   }
 
   .hero-panel {
@@ -625,7 +634,8 @@ html, body {
   .content-panel {
     width: 100%;
     height: auto;
-    flex: 1;
+    flex: none;
+    overflow: visible;
   }
 
   .hero-title {
@@ -659,6 +669,10 @@ html, body {
   .section-title {
     font-size: 28px;
   }
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 @media (max-width: 600px) {

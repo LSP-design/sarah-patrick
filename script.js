@@ -8,6 +8,7 @@ const guestName = document.getElementById('guestName');
 const rsvpStatus = document.getElementById('rsvpStatus');
 const layout = document.querySelector('.layout');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const mobileLayout = window.matchMedia('(max-width: 900px)');
 let previousFocus = null;
 let focusTimer;
 
@@ -50,7 +51,11 @@ function showPage(pageName) {
   document.querySelectorAll('.page').forEach(page => {
     page.classList.toggle('active', page === target);
   });
-  contentPanel.scrollTop = 0;
+  if (mobileLayout.matches) {
+    window.scrollTo({ top: 0, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  } else {
+    contentPanel.scrollTop = 0;
+  }
   handleScrollAnimations();
 }
 
@@ -60,11 +65,12 @@ function scrollToSection(sectionName) {
   }
   const section = document.getElementById(`section-${sectionName}`);
   if (!section) return;
+  if (mobileLayout.matches) {
+    section.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+    return;
+  }
   const offset = section.getBoundingClientRect().top - contentPanel.getBoundingClientRect().top;
-  contentPanel.scrollTo({
-    top: contentPanel.scrollTop + offset,
-    behavior: reducedMotion.matches ? 'instant' : 'smooth'
-  });
+  contentPanel.scrollTo({ top: contentPanel.scrollTop + offset, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
 }
 
 function openRSVP() {
@@ -73,6 +79,7 @@ function openRSVP() {
   rsvpStatus.textContent = '';
   rsvpModal.inert = false;
   layout.inert = true;
+  document.body.classList.add('modal-open');
   rsvpModal.classList.add('active');
   clearTimeout(focusTimer);
   focusTimer = setTimeout(() => guestName.focus(), reducedMotion.matches ? 0 : 300);
@@ -84,6 +91,7 @@ function closeRSVP() {
   rsvpModal.classList.remove('active');
   rsvpModal.inert = true;
   layout.inert = false;
+  document.body.classList.remove('modal-open');
   previousFocus?.focus();
 }
 
@@ -99,9 +107,9 @@ function submitRSVP(event) {
 }
 
 function handleScrollAnimations() {
-  const panelRect = contentPanel.getBoundingClientRect();
+  const threshold = mobileLayout.matches ? window.innerHeight - 50 : contentPanel.getBoundingClientRect().bottom - 50;
   contentPanel.querySelectorAll('.page.active .section').forEach(section => {
-    if (section.getBoundingClientRect().top < panelRect.bottom - 50) {
+    if (section.getBoundingClientRect().top < threshold) {
       section.classList.add('visible');
     }
   });
@@ -138,6 +146,7 @@ document.addEventListener('keydown', event => {
 });
 
 contentPanel.addEventListener('scroll', handleScrollAnimations, { passive: true });
+window.addEventListener('scroll', handleScrollAnimations, { passive: true });
 window.addEventListener('resize', handleScrollAnimations);
 updateCountdown();
 setInterval(updateCountdown, 1000);

@@ -861,9 +861,24 @@ body.modal-open {
 
 .hero-image {
   z-index: 1;
-  background-position: center 26%;
+  background-position: center;
   box-shadow: 0 24px 60px rgba(37, 42, 30, 0.23);
-  animation: heroFrameIn 1.15s cubic-bezier(.2,.74,.22,1) both;
+  will-change: opacity, transform, filter;
+}
+
+.hero-venue {
+  opacity: 1;
+  background-image: url('assets/venue/manoir-lake-exterior.webp');
+  background-position: center;
+  animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
+}
+
+.hero-couple {
+  z-index: 2;
+  opacity: 0;
+  background-image: url('assets/source-photos/sp-1.jpg');
+  background-position: center 26%;
+  animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
 
 .hero-floral {
@@ -1022,6 +1037,19 @@ body.modal-open {
 @keyframes heroFrameIn {
   from { opacity: 0; transform: translateY(28px) scale(.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes venueFrame {
+  0% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
+  7%, 43% { opacity: 1; filter: saturate(1.03) sepia(0) brightness(1); transform: translateY(0) scale(1); }
+  50%, 93% { opacity: 0; filter: saturate(.72) sepia(.16) brightness(.9); transform: translateY(-16px) scale(1.035); }
+  100% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
+}
+
+@keyframes coupleFrame {
+  0%, 43% { opacity: 0; filter: saturate(.68) sepia(.18) brightness(.88); transform: translateY(20px) scale(.98); }
+  50%, 93% { opacity: 1; filter: saturate(1.04) sepia(0) brightness(1); transform: translateY(0) scale(1); }
+  100% { opacity: 0; filter: saturate(.7) sepia(.15) brightness(.9); transform: translateY(-18px) scale(1.035); }
 }
 
 @keyframes invitationLift {

@@ -919,9 +919,12 @@ body.modal-open {
 
 .hero-title { margin-bottom: 8px; }
 
-.hero-subtitle {
-  max-width: 430px;
-  margin: 0 auto;
+.hero-date {
+  margin: 0;
+  color: #f7e0ab;
+  font: 400 17px 'Playfair Display', serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .hero-details {
@@ -929,13 +932,31 @@ body.modal-open {
   justify-content: center;
   align-items: center;
   gap: 11px;
-  margin-top: 18px;
+  margin-top: 9px;
   color: #fff4d9;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
+
+.hero-welcome {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 18px;
+  padding: 10px 21px 9px;
+  color: #42533F;
+  background: rgba(255, 252, 244, 0.93);
+  border: 1px solid rgba(220, 191, 132, 0.9);
+  box-shadow: 0 8px 20px rgba(10, 15, 10, 0.14);
+  text-decoration: none;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.hero-welcome:hover { transform: translateY(-2px); background: #fffaf0; }
+.hero-welcome strong { font: 400 17px 'Playfair Display', serif; }
+.hero-welcome span { color: #8a744b; font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
 .hero-details i {
   width: 4px;
@@ -1063,7 +1084,9 @@ body.modal-open {
   .hero-content { bottom: 118px; padding: 0 13%; }
   .hero-floral { bottom: 48px; width: min(37%, 260px); }
   .hero-kicker { font-size: 9px; }
-  .hero-details { margin-top: 13px; font-size: 9px; }
+  .hero-date { font-size: 15px; }
+  .hero-details { margin-top: 8px; font-size: 9px; }
+  .hero-welcome { margin-top: 14px; padding: 9px 17px 8px; }
   .hero-bottom-bar { left: 8%; right: 8%; margin-bottom: 13px; }
   .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .venue-editorial { min-height: 350px; }
@@ -1077,8 +1100,10 @@ body.modal-open {
   .hero-content { bottom: 94px; padding: 0 13%; }
   .hero-floral { left: -11%; bottom: 30px; width: 45%; }
   .hero-title { font-size: 34px; }
-  .hero-subtitle { font-size: 12px; line-height: 1.45; }
+  .hero-date { font-size: 13px; }
   .hero-details { gap: 7px; font-size: 8px; white-space: nowrap; }
+  .hero-welcome { margin-top: 11px; padding: 8px 14px 7px; }
+  .hero-welcome strong { font-size: 14px; }
   .hero-bottom-bar { left: 9%; right: 9%; margin-bottom: 10px; }
   .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .photo-grid figure:last-child { grid-column: 1 / -1; }

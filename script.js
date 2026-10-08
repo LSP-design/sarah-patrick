@@ -1,4 +1,4 @@
-const eventDate = new Date('2024-05-18T00:00:00-04:00');
+const eventDate = new Date('2027-05-15T00:00:00-04:00');
 const contentPanel = document.getElementById('contentPanel');
 const menuButton = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideNav');
@@ -12,7 +12,7 @@ const mobileLayout = window.matchMedia('(max-width: 900px)');
 let previousFocus = null;
 let focusTimer;
 
-// May 18, 2024 is intentionally retained from the supplied specification.
+// The date and venue come from the project's Drive folder.
 function updateCountdown() {
   const now = new Date();
   const elapsed = Math.floor(Math.abs(now - eventDate) / 1000);
@@ -103,7 +103,7 @@ function submitRSVP(event) {
     return;
   }
   // Presentation only: no guest list or RSVP service was supplied.
-  rsvpStatus.textContent = 'Les détails des invitations seront bientôt disponibles. Pour confirmer votre présence, veuillez contacter Sarah et Patrick.';
+  rsvpStatus.textContent = 'Les réservations seront ouvertes prochainement. Nous communiquerons les détails de votre invitation dès qu’ils seront disponibles.';
 }
 
 function handleScrollAnimations() {

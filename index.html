@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sarah &amp; Patrick</title>
-  <meta name="description" content="Célébrons le mariage de Sarah et Patrick. Retrouvez les informations de notre célébration du 18 mai 2024.">
-  <meta name="theme-color" content="#1D5A7D">
+  <meta name="description" content="Sarah et Patrick se marient le 15 mai 2027 au Manoir Hovey, à North Hatley, Québec.">
+  <meta name="theme-color" content="#42533F">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <div class="layout">
     <!-- LEFT: Hero Panel -->
     <div class="hero-panel" id="heroPanel">
-      <div class="hero-image" style="background-image: url('assets/couple.jpg')"></div>
+      <div class="hero-image" style="background-image: url('assets/source-photos/sp-2.jpg')"></div>
       <div class="hero-overlay"></div>
 
       <!-- Menu Button -->
@@ -31,13 +31,13 @@
       <!-- Hero Content -->
       <div class="hero-content">
         <h1 class="hero-title">Sarah & Patrick</h1>
-        <p class="hero-subtitle">Célébrons au nom de l'Éternel, qui aura fait pour nous des prodiges ; Merci de partager ces moments spéciaux avec nous. Soyez bénis!</p>
+        <p class="hero-subtitle">Nous nous marions ! Nous avons hâte de célébrer cette journée avec vous.</p>
       </div>
 
       <!-- Bottom Bar -->
       <div class="hero-bottom-bar">
-        <span class="bottom-bar-date">May 18th, 2024</span>
-        <button class="btn-dark" onclick="openRSVP()">Unlock Guest Details</button>
+        <span class="bottom-bar-date">15 mai 2027</span>
+        <button class="btn-dark" onclick="openRSVP()">Réservez votre place</button>
       </div>
     </div>
 
@@ -95,11 +95,13 @@
       <!-- Page: Home -->
       <div class="page active" id="page-home">
         <div class="section section-date">
-          <p class="event-date">Saturday, May 18, 2024</p>
+          <p class="eyebrow">Nous nous marions</p>
+          <p class="event-date">Samedi 15 mai 2027</p>
           <p class="countdown" id="countdown"></p>
-          <button class="btn-outline btn-primary" onclick="openRSVP()">Unlock Guest Details</button>
+          <p class="event-place">Manoir Hovey · North Hatley, Québec</p>
+          <button class="btn-outline btn-primary" onclick="openRSVP()">Réservez votre place</button>
           <a href="#" class="view-details-link" onclick="scrollToSection('schedule'); return false;">
-            View Details
+            Découvrir la célébration
           </a>
           <button class="scroll-indicator" type="button" aria-label="Voir l’horaire et le lieu" onclick="scrollToSection('schedule')">
             <svg width="24" height="14" viewBox="0 0 24 14" fill="none">
@@ -109,38 +111,65 @@
         </div>
 
         <div class="section section-schedule" id="section-schedule">
-          <p class="section-title">Horaire & Lieu</p>
-          <button class="btn-outline" onclick="openRSVP()">Unlock Guest Details</button>
+          <p class="section-kicker">Le lieu</p>
+          <p class="section-title">Manoir Hovey</p>
+          <p class="section-copy">Notre célébration aura lieu au Manoir Hovey, dans le magnifique village de North Hatley, au Québec.</p>
+          <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Manoir+Hovey+North+Hatley+Quebec" target="_blank" rel="noopener noreferrer">Voir l’itinéraire</a>
+        </div>
+
+        <div class="section story-section" id="section-story">
+          <img class="section-photo portrait" src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick">
+          <p class="section-kicker">Notre histoire</p>
+          <p class="section-title">Sarah &amp; Patrick</p>
+          <p class="section-copy">Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
+        </div>
+
+        <div class="section" id="section-programme">
+          <p class="section-kicker">Programme</p>
+          <p class="section-title">La journée</p>
+          <p class="section-copy">Les horaires de la cérémonie et de la réception seront communiqués prochainement aux invités.</p>
+        </div>
+
+        <div class="section" id="section-menu">
+          <p class="section-kicker">Menu</p>
+          <p class="section-title">À table</p>
+          <p class="section-copy">Les informations sur le repas et les restrictions alimentaires seront ajoutées prochainement.</p>
+        </div>
+
+        <div class="section" id="section-reserve">
+          <p class="section-kicker">Réservez</p>
+          <p class="section-title">Confirmez votre présence</p>
+          <p class="section-copy">Entrez votre nom pour accéder aux détails de votre invitation lorsque les réponses seront ouvertes.</p>
+          <button class="btn-outline btn-primary" onclick="openRSVP()">Réservez votre place</button>
+        </div>
+
+        <div class="section" id="section-gifts">
+          <p class="section-kicker">Contribution aux mariés</p>
+          <p class="section-title">Merci</p>
+          <p class="section-copy">Les informations de contribution seront communiquées prochainement.</p>
         </div>
 
         <div class="section section-app" id="section-app">
-          <p class="section-title">Get the app</p>
-          <p class="app-description">Download Joy and join our app using our event handle sarah-patrick. View and share photos and stay up-to-date with details on the go.</p>
-          <div class="app-buttons">
-            <a class="btn-outline btn-app" href="https://apps.apple.com/us/app/joy-wedding-app-website/id994411720" target="_blank" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.84C10.56 4.82 11.78 5.72 12.57 5.72C13.36 5.72 14.85 4.62 16.4 4.8C17.04 4.83 18.83 5.06 19.97 6.7C19.88 6.76 17.64 8.07 17.67 10.8C17.7 14.09 20.56 15.17 20.59 15.18C20.56 15.27 20.12 16.77 19.01 18.31L18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
-              App Store
-            </a>
-            <a class="btn-outline btn-app" href="https://play.google.com/store/apps/details?id=com.withjoy.joy" target="_blank" rel="noopener noreferrer">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-              Google Play
-            </a>
+          <p class="section-kicker">Photos</p>
+          <p class="section-title">Nos souvenirs</p>
+          <div class="photo-grid">
+            <img src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
+            <img src="assets/source-photos/sp-2.jpg" alt="Sarah et Patrick ensemble">
           </div>
         </div>
 
-        <footer class="site-footer">
-          <a href="https://withjoy.com/" class="footer-link footer-brand" target="_blank" rel="noopener noreferrer">Joy</a>
-          <a href="https://help.withjoy.com/" class="footer-link" target="_blank" rel="noopener noreferrer">Guest Help</a>
-          <a href="https://withjoy.com/about/" class="footer-link" target="_blank" rel="noopener noreferrer">About</a>
-          <a href="https://withjoy.com/wedding-website/" class="footer-link" target="_blank" rel="noopener noreferrer">Browse Designs</a>
+        <footer class="site-footer" id="section-contact">
+          <span class="footer-brand">Sarah &amp; Patrick</span>
+          <span class="footer-link">15 mai 2027</span>
+          <span class="footer-link">Manoir Hovey</span>
         </footer>
       </div>
 
       <!-- Page: Schedule -->
       <div class="page" id="page-schedule">
         <div class="section section-schedule-detail">
-          <p class="section-title">Horaire & Lieu</p>
-          <button class="btn-outline" onclick="openRSVP()">Unlock Guest Details</button>
+          <p class="section-title">Manoir Hovey</p>
+          <p class="section-copy">North Hatley, Québec · 15 mai 2027</p>
         </div>
       </div>
 
@@ -183,20 +212,26 @@
   <nav class="side-nav" id="sideNav" aria-label="Navigation principale" inert>
     <button class="nav-close" onclick="closeMenu()" aria-label="Fermer le menu">&times;</button>
     <a href="#" class="nav-link" onclick="showPage('home'); closeMenu(); return false;">Accueil</a>
-    <a href="#" class="nav-link" onclick="showPage('schedule'); closeMenu(); return false;">Horaire & Lieu</a>
-    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('app'); return false;">Get the app</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('story'); return false;">Notre histoire</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('schedule'); return false;">Lieu</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('programme'); return false;">Programme</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('menu'); return false;">Menu</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('reserve'); return false;">Réservez</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('gifts'); return false;">Contribution aux mariés</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('app'); return false;">Photos</a>
+    <a href="#" class="nav-link" onclick="closeMenu(); scrollToSection('contact'); return false;">Contact</a>
   </nav>
 
   <!-- RSVP Modal -->
   <div class="modal-overlay" id="rsvpModal" inert>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-describedby="rsvpDescription">
       <button class="modal-close" onclick="closeRSVP()" aria-label="Fermer la fenêtre">&times;</button>
-      <h2 class="modal-title" id="rsvpTitle">Unlock Guest Details</h2>
-      <p class="modal-text" id="rsvpDescription">Enter your name to unlock guest details, RSVP, and more.</p>
+      <h2 class="modal-title" id="rsvpTitle">Réservez votre place</h2>
+      <p class="modal-text" id="rsvpDescription">Entrez votre nom pour accéder aux détails de votre invitation.</p>
       <form id="rsvpForm">
         <label class="sr-only" for="guestName">Prénom et nom</label>
-        <input type="text" class="modal-input" placeholder="First and Last Name" id="guestName" name="guestName" autocomplete="name" maxlength="120" required>
-        <button class="btn-dark btn-modal-submit" type="submit">Find My Invite</button>
+        <input type="text" class="modal-input" placeholder="Prénom et nom" id="guestName" name="guestName" autocomplete="name" maxlength="120" required>
+        <button class="btn-dark btn-modal-submit" type="submit">Accéder à mon invitation</button>
         <p class="modal-status" id="rsvpStatus" role="status" aria-live="polite"></p>
       </form>
     </div>

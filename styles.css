@@ -280,6 +280,25 @@ html, body {
   animation: fadeIn 1s ease 0.3s both;
 }
 
+.eyebrow,
+.section-kicker {
+  color: #9A7B3B;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.event-place {
+  max-width: 310px;
+  margin: -20px auto 32px;
+  color: #42533F;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
 .countdown {
   font-size: 14px;
   color: #8B9DAF;
@@ -358,6 +377,40 @@ html, body {
   margin-bottom: 28px;
 }
 
+.section-copy {
+  max-width: 420px;
+  margin: 0 auto 28px;
+  color: #4B4B43;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.story-section {
+  background: #F1EBDD;
+}
+
+.section-photo {
+  display: block;
+  width: min(100%, 310px);
+  margin: 0 auto 28px;
+  object-fit: cover;
+  box-shadow: 0 18px 45px rgba(24, 24, 19, 0.16);
+}
+
+.section-photo.portrait { aspect-ratio: 4 / 5; }
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
 /* Schedule section */
 .section-schedule {
   padding-top: 60px;
@@ -428,6 +481,19 @@ html, body {
   font-family: 'Lobster', cursive;
   font-size: 18px;
   color: #1D5A7D;
+}
+
+/* Palette confirmed in the project brief: champagne, black, almond and green. */
+.content-panel { background: #FBF8F1; }
+.event-date, .btn-outline.btn-primary, .view-details-link, .footer-brand { color: #42533F; }
+.btn-outline.btn-primary { border-color: #42533F; }
+.btn-outline.btn-primary:hover { background: #42533F; }
+.section-title { color: #202018; }
+.hero-overlay { background: linear-gradient(0deg, rgba(20, 24, 18, 0.55) 0%, rgba(20, 24, 18, 0.2) 52%, rgba(20, 24, 18, 0) 100%); }
+.watercolor-top, .watercolor-bottom { opacity: 0.25; filter: sepia(0.7) hue-rotate(330deg) saturate(0.65); }
+
+@media (max-width: 600px) {
+  .photo-grid img { height: 170px; }
 }
 
 /* ===== SIDE NAVIGATION ===== */

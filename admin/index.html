@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#283d2d">
+  <title>Sarah & Patrick — Administration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Accueil de l'administration"><span>Sarah <i>&amp;</i> Patrick</span><small>Administration</small></a>
+      <nav aria-label="Navigation d'administration">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Tableau de bord</button>
+        <button class="nav-item" data-view="site"><span>✦</span> Contenu du site</button>
+        <button class="nav-item" data-view="rsvps"><span>✓</span> Réservations <b>0</b></button>
+        <button class="nav-item" data-view="payments"><span>◇</span> Paiements & dons</button>
+        <button class="nav-item" data-view="photos"><span>▣</span> Photos</button>
+        <button class="nav-item" data-view="settings"><span>⚙</span> Paramètres</button>
+      </nav>
+      <div class="sidebar-bottom"><a href="https://sarah-patrick-snowy.vercel.app" target="_blank" rel="noopener">Voir le site public ↗</a><button type="button" id="signOut">Déconnexion</button></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+        <div><p class="eyebrow">Espace privé</p><h1 id="pageTitle">Bonjour Sarah &amp; Patrick</h1></div>
+        <div class="account"><span class="avatar">SP</span><span>Administrateur</span></div>
+      </header>
+
+      <section class="view active" id="dashboard">
+        <div class="intro"><div><h2>Tout est prêt pour votre célébration.</h2><p>Gérez les détails invités depuis un seul endroit.</p></div><a class="button primary" href="https://sarah-patrick-snowy.vercel.app" target="_blank" rel="noopener">Aperçu du site ↗</a></div>
+        <div class="stats">
+          <article><span class="stat-icon green">✓</span><p>Réponses reçues</p><strong>0</strong><small>Les réponses apparaîtront ici.</small></article>
+          <article><span class="stat-icon gold">◉</span><p>Invités confirmés</p><strong>0</strong><small>Sur votre liste d’invités.</small></article>
+          <article><span class="stat-icon rose">◇</span><p>Contributions</p><strong>0 $</strong><small>Montant total des dons.</small></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="card event-card"><p class="card-label">Votre événement</p><h3>Sarah &amp; Patrick</h3><p class="event-date">Samedi 15 mai 2027</p><p>Manoir Hovey · North Hatley, Québec</p><button class="text-button" data-go="site">Modifier les détails →</button></article>
+          <article class="card checklist"><div class="card-heading"><div><p class="card-label">À compléter</p><h3>Avant de publier</h3></div><span>4 étapes</span></div><label><input type="checkbox" disabled> Ajouter l’horaire de la journée</label><label><input type="checkbox" disabled> Ajouter les détails du menu</label><label><input type="checkbox" disabled> Configurer le lien de réservation</label><label><input type="checkbox" disabled> Configurer le lien de contribution</label></article>
+        </div>
+      </section>
+
+      <section class="view" id="site">
+        <div class="section-heading"><div><h2>Contenu du site</h2><p>Les modifications seront visibles sur le site public après publication.</p></div><button class="button primary" data-save="site">Enregistrer les changements</button></div>
+        <form class="form-grid" id="siteForm">
+          <article class="card form-card wide"><h3>Informations principales</h3><div class="field-grid"><label>Noms des mariés<input name="couple_names" value="Sarah & Patrick"></label><label>Date du mariage<input name="event_date" type="date" value="2027-05-15"></label><label>Lieu<input name="venue_name" value="Manoir Hovey"></label><label>Ville<input name="venue_city" value="North Hatley, Québec"></label></div></article>
+          <article class="card form-card wide"><h3>Accueil</h3><label>Message d’accueil<textarea name="hero_message" rows="3">Nous nous marions ! Nous avons hâte de célébrer cette journée avec vous.</textarea></label></article>
+          <article class="card form-card"><h3>Notre histoire</h3><label>Texte<textarea name="story" rows="6">Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</textarea></label></article>
+          <article class="card form-card"><h3>Programme</h3><label>Texte<textarea name="programme" rows="6" placeholder="Ajoutez l'horaire de la cérémonie et de la réception."></textarea></label></article>
+          <article class="card form-card"><h3>Menu</h3><label>Texte<textarea name="menu" rows="6" placeholder="Ajoutez les informations sur le repas."></textarea></label></article>
+          <article class="card form-card"><h3>Contact</h3><label>Adresse courriel de contact<input name="contact_email" type="email" placeholder="exemple@courriel.com"></label><label>Message aux invités<textarea name="contact_message" rows="3" placeholder="Pour toute question, contactez-nous."></textarea></label></article>
+        </form>
+      </section>
+
+      <section class="view" id="rsvps">
+        <div class="section-heading"><div><h2>Réservations</h2><p>Suivez les réponses de vos invités et leurs restrictions alimentaires.</p></div><button class="button" id="exportRsvps">Exporter en CSV</button></div>
+        <article class="card empty-state"><span>✉</span><h3>Aucune réponse pour le moment</h3><p>Dès que les réservations seront ouvertes, les réponses des invités apparaîtront ici.</p><button class="button primary" data-go="payments">Configurer les réservations</button></article>
+      </section>
+
+      <section class="view" id="payments">
+        <div class="section-heading"><div><h2>Paiements &amp; contributions</h2><p>Ajoutez vos liens sécurisés; aucune donnée bancaire n’est stockée ici.</p></div><button class="button primary" data-save="payments">Enregistrer</button></div>
+        <div class="form-grid">
+          <article class="card form-card"><h3>Réservation</h3><label>Libellé<input id="bookingLabel" value="Réserver votre place"></label><label>Lien de paiement ou formulaire<input id="bookingUrl" type="url" placeholder="https://"></label><p class="hint">Les invités seront redirigés vers ce lien.</p></article>
+          <article class="card form-card"><h3>Contribution aux mariés</h3><label>Libellé<input id="giftLabel" value="Contribuer"></label><label>Lien sécurisé<input id="giftUrl" type="url" placeholder="https://"></label><p class="hint">Utilisez un lien fourni par votre service de paiement.</p></article>
+        </div>
+      </section>
+
+      <section class="view" id="photos">
+        <div class="section-heading"><div><h2>Photos</h2><p>Vos photos actuelles sont prêtes à être affichées dans la galerie.</p></div><button class="button primary" id="uploadPhotos">Ajouter des photos</button></div>
+        <div class="photo-admin-grid"><img src="https://sarah-patrick-snowy.vercel.app/assets/source-photos/sp-1.jpg" alt="Sarah et Patrick"><img src="https://sarah-patrick-snowy.vercel.app/assets/source-photos/sp-12.jpg" alt="Sarah et Patrick"><img src="https://sarah-patrick-snowy.vercel.app/assets/source-photos/sp-2.jpg" alt="Sarah et Patrick"></div>
+      </section>
+
+      <section class="view" id="settings">
+        <div class="section-heading"><div><h2>Paramètres</h2><p>Accès, sécurité et domaine de l’espace administrateur.</p></div></div>
+        <div class="form-grid">
+          <article class="card form-card"><h3>Sous-domaine</h3><label>Adresse prévue<input value="admin.sarah-patrick.com" readonly></label><p class="hint">Le domaine sera activé dès que le domaine principal sera connecté à Vercel.</p></article>
+          <article class="card form-card"><h3>Administrateurs</h3><p class="hint">Les comptes invités pourront modifier le contenu, consulter les réservations et gérer les liens.</p><button class="button" id="inviteAdmin">Inviter un administrateur</button></article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

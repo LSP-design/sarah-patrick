@@ -85,7 +85,17 @@
       </section>
     </main>
   </div>
+  <div class="auth-gate" id="authGate">
+    <form class="auth-card" id="authForm">
+      <p class="eyebrow">Espace privé</p>
+      <h2>Administration<br>Sarah &amp; Patrick</h2>
+      <p id="authCopy">La connexion sécurisée est en cours de préparation.</p>
+      <label>Adresse courriel<input id="authEmail" type="email" autocomplete="email" placeholder="vous@exemple.com" required></label>
+      <button class="button primary" id="authButton" type="submit" disabled>Recevoir le lien de connexion</button>
+      <p class="auth-status" id="authStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

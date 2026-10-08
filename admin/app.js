@@ -47,12 +47,23 @@ document.querySelector('[data-save="site"]').addEventListener('click', () => sup
 document.querySelector('[data-save="payments"]').addEventListener('click', () => supabase ? savePayments() : notify('La base sécurisée est en cours d’activation.'));
 document.getElementById('exportRsvps').addEventListener('click', () => notify('L’export CSV sera disponible après l’activation des réservations.'));
 document.getElementById('uploadPhotos').addEventListener('click', () => notify('Le stockage sécurisé des photos sera ajouté dans Supabase Storage.'));
-document.getElementById('inviteAdmin').addEventListener('click', () => notify('Ajoutez un compte administrateur depuis Supabase Auth, puis attribuez-lui le rôle éditeur.'));
+document.getElementById('inviteAdmin').addEventListener('click', async () => {
+  if (!supabase) return;
+  const email = window.prompt('Adresse courriel de la personne à ajouter :');
+  if (!email) return;
+  const { error } = await supabase.rpc('invite_admin', { invitee_email: email, invitee_role: 'editor' });
+  notify(error ? 'Impossible d’ajouter ce courriel.' : 'Courriel autorisé. La personne peut maintenant se connecter avec son lien sécurisé.');
+});
 document.getElementById('signOut').addEventListener('click', async () => { if (supabase) await supabase.auth.signOut(); location.reload(); });
 if (!configured) authCopy.textContent = 'La base sécurisée est prête à être reliée. La connexion sera disponible dès la création du projet Supabase.';
 else {
   authButton.disabled = false; authCopy.textContent = 'Entrez votre adresse courriel pour recevoir un lien de connexion sécurisé.';
   const { data: { session } } = await supabase.auth.getSession();
-  if (session) { const { data: role } = await supabase.from('admin_users').select('role').eq('user_id', session.user.id).maybeSingle(); if (role) { authGate.classList.add('hidden'); loadDashboard(); } else authStatus.textContent = 'Ce compte ne possède pas encore l’accès administrateur.'; }
+  if (session) {
+    const { error } = await supabase.rpc('claim_admin_access');
+    const { data: role } = await supabase.from('admin_users').select('role').eq('user_id', session.user.id).maybeSingle();
+    if (!error && role) { authGate.classList.add('hidden'); loadDashboard(); }
+    else authStatus.textContent = 'Ce compte ne possède pas encore l’accès administrateur.';
+  }
 }
 authForm.addEventListener('submit', async event => { event.preventDefault(); if (!supabase) return; authButton.disabled = true; const { error } = await supabase.auth.signInWithOtp({ email: document.getElementById('authEmail').value, options: { emailRedirectTo: window.location.href } }); authStatus.textContent = error ? error.message : 'Un lien de connexion vient d’être envoyé.'; authButton.disabled = false; });

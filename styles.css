@@ -1408,13 +1408,13 @@ body.menu-open { overflow: hidden; }
 .info-floral { display: grid; place-items: center; min-height: 420px; }
 .info-floral img { display: block; width: min(100%, 420px); filter: drop-shadow(0 15px 24px rgba(43,43,30,.12)); }
 .info-reading { max-width: 670px; padding: 16px 0 30px; color: #31362d; }
-.info-reading h2, .photos-overlay-inner h2 {
+.info-reading h2 {
   margin: 4px 0 18px;
   color: #202018;
   font: 400 clamp(48px, 6vw, 84px)/.95 'Lobster', cursive;
 }
 .info-reading p { max-width: 640px; margin: 0 0 21px; font-size: 17px; line-height: 1.85; }
-.info-reading .info-lead, .photos-overlay-inner .info-lead {
+.info-reading .info-lead {
   color: #51604d;
   font: italic clamp(20px, 2.2vw, 30px)/1.45 'Playfair Display', serif;
 }
@@ -1438,11 +1438,6 @@ body.menu-open { overflow: hidden; }
   transition: background .22s ease, color .22s ease, transform .22s ease;
 }
 .overlay-close:hover { color: #d8b86f; background: #42533f; transform: rotate(90deg); }
-.photos-overlay-inner { width: min(100%, 1180px); min-height: 100%; margin: auto; padding: 30px 0; text-align: center; }
-.photos-overlay-inner .info-lead { max-width: 620px; margin: 0 auto 36px; }
-.photos-overlay-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.photos-overlay-grid img { display: block; width: 100%; height: clamp(270px, 42vw, 490px); object-fit: cover; box-shadow: 0 15px 30px rgba(43,43,30,.14); }
-.photos-overlay-grid img:nth-child(2) { object-position: center 28%; }
 body.overlay-open { overflow: hidden; }
 
 @media (max-width: 1180px) {
@@ -1466,10 +1461,7 @@ body.overlay-open { overflow: hidden; }
   .info-cover { width: 100%; max-height: none; aspect-ratio: 16 / 10; margin: 0 auto 40px; }
   .info-floral { min-height: 0; width: min(70%, 280px); margin: 0 auto 30px; }
   .info-reading { margin: 0 auto; }
-  .info-reading h2, .photos-overlay-inner h2 { font-size: 54px; }
+  .info-reading h2 { font-size: 54px; }
   .info-reading p { font-size: 16px; line-height: 1.8; }
   .overlay-close { width: 45px; height: 45px; font-size: 36px; }
-  .photos-overlay-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .photos-overlay-grid img { height: 240px; }
-  .photos-overlay-grid img:last-child { grid-column: 1 / -1; height: 300px; }
 }

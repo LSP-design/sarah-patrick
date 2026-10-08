@@ -22,10 +22,8 @@
       </div>
       <a class="header-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp.jpeg" alt=""></a>
       <div class="nav-group">
-        <a href="#menu" onclick="openInfo('menuOverlay'); return false;">Menu</a>
         <a href="#reservation" onclick="openRSVP(); return false;">Réservez</a>
         <a href="#dons" onclick="openInfo('giftsOverlay'); return false;">Dons</a>
-        <a href="#photos" onclick="openInfo('photosOverlay'); return false;">Photos</a>
         <a href="#contact" onclick="openInfo('contactOverlay'); return false;">Contact</a>
       </div>
     </nav>
@@ -242,10 +240,8 @@
     <a href="#notre-histoire" class="nav-link" onclick="openStory(); return false;">Notre histoire</a>
     <a href="#lieu" class="nav-link" onclick="openVenue(); return false;">Lieu</a>
     <a href="#programme" class="nav-link" onclick="openInfo('programmeOverlay'); return false;">Programme</a>
-    <a href="#menu" class="nav-link" onclick="openInfo('menuOverlay'); return false;">Menu</a>
     <a href="#reservation" class="nav-link" onclick="openRSVP(); return false;">Réservez</a>
     <a href="#dons" class="nav-link" onclick="openInfo('giftsOverlay'); return false;">Dons</a>
-    <a href="#photos" class="nav-link" onclick="openInfo('photosOverlay'); return false;">Photos</a>
     <a href="#contact" class="nav-link" onclick="openInfo('contactOverlay'); return false;">Contact</a>
   </nav>
 
@@ -325,20 +321,6 @@
     </div>
   </section>
 
-  <section class="info-overlay page-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-labelledby="menuTitle" inert>
-    <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer le menu du repas">&times;</button>
-    <div class="info-overlay-inner">
-      <div class="info-floral"><img src="assets/florals/peony-corner-yellow.webp" alt=""></div>
-      <article class="info-reading">
-        <p class="section-kicker">Le repas</p>
-        <h2 id="menuTitle">À table</h2>
-        <p class="info-lead">Un moment à partager ensemble.</p>
-        <div class="info-rule" aria-hidden="true"></div>
-        <p>Le menu et les renseignements concernant les restrictions alimentaires seront ajoutés ici dès qu’ils seront confirmés.</p>
-      </article>
-    </div>
-  </section>
-
   <section class="info-overlay page-overlay" id="giftsOverlay" role="dialog" aria-modal="true" aria-labelledby="giftsTitle" inert>
     <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page des dons">&times;</button>
     <div class="info-overlay-inner">
@@ -350,20 +332,6 @@
         <div class="info-rule" aria-hidden="true"></div>
         <p>Les informations concernant les contributions seront communiquées prochainement.</p>
       </article>
-    </div>
-  </section>
-
-  <section class="info-overlay page-overlay photos-overlay" id="photosOverlay" role="dialog" aria-modal="true" aria-labelledby="photosTitle" inert>
-    <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer les photos">&times;</button>
-    <div class="photos-overlay-inner">
-      <p class="section-kicker">Sarah &amp; Patrick</p>
-      <h2 id="photosTitle">Nos souvenirs</h2>
-      <p class="info-lead">Quelques moments de notre histoire avant de célébrer la suite avec vous.</p>
-      <div class="photos-overlay-grid">
-        <img src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick ensemble">
-        <img src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
-        <img src="assets/source-photos/sp-2.jpg" alt="Sarah et Patrick ensemble">
-      </div>
     </div>
   </section>
 

@@ -1026,7 +1026,7 @@ body.story-open { overflow: hidden; }
 .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .photo-grid img:first-child { object-position: center 24%; }
 
-/* Venue photography. */
+/* Layered venue image and portrait. */
 .venue-editorial {
   position: relative;
   width: min(100%, 490px);
@@ -1320,102 +1320,6 @@ body.rsvp-open { overflow: hidden; }
   .venue-close { width: 45px; height: 45px; font-size: 36px; }
 }
 
-/* Official Lac Carling design supplied in the presentation. */
-:root { --forest: #004C22; --leaf: #007A37; --gold: #AC8300; --gold-bright: #FFC000; --almond: #F6F0E5; }
-html, body { height: auto; min-height: 100%; overflow-x: hidden; overflow-y: auto; color: var(--forest); background: #fff; }
-.layout { display: block; width: 100%; height: auto; min-height: 100dvh; }
-
-.site-header { position: relative; z-index: 20; display: flex; align-items: center; justify-content: center; width: min(100% - 48px, 1260px); min-height: 86px; margin: 0 auto; background: #fff; }
-.desktop-nav { display: grid; grid-template-columns: 1fr 84px 1.25fr; align-items: center; width: 100%; min-height: 84px; border-top: 3px solid var(--gold-bright); }
-.nav-group { display: flex; align-items: center; justify-content: space-around; gap: clamp(8px, 1.5vw, 28px); }
-.nav-group a { color: var(--leaf); font: 700 clamp(12px, 1.05vw, 15px)/1.2 'Playfair Display', serif; text-decoration: none; text-transform: uppercase; white-space: nowrap; transition: color .2s ease, transform .2s ease; }
-.nav-group a:hover { color: var(--gold); transform: translateY(-2px); }
-.header-brand { display: block; justify-self: center; width: 68px; height: 68px; }
-.header-brand img, .mobile-header-brand img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.mobile-header-brand, .site-header .menu-btn { display: none; }
-
-.hero-panel { position: relative; width: min(100% - 48px, 1260px); height: auto; aspect-ratio: 16 / 9; margin: 0 auto; padding: 0; overflow: hidden; background: var(--almond); }
-.hero-panel::before { display: none; }
-.hero-image, .hero-overlay { inset: 0; border-radius: 0; }
-.hero-image { box-shadow: none; background-position: center; }
-.hero-venue { background-image: url('assets/venue/lac-carling-officiel.jpg'); background-position: center 47%; }
-.hero-couple { background-position: center 27%; }
-.hero-overlay { background: none; pointer-events: none; }
-.hero-monogram { position: absolute; z-index: 4; top: 25%; left: 50%; width: clamp(88px, 12vw, 172px); height: auto; filter: drop-shadow(0 2px 4px rgba(15, 31, 16, .55)); transform: translateX(-50%); pointer-events: none; animation: monogramFrame 16s ease-in-out infinite; }
-@keyframes monogramFrame { 0%, 43% { opacity: .95; } 50%, 93% { opacity: 0; } 100% { opacity: .95; } }
-
-.content-panel { width: 100%; height: auto; min-height: 0; overflow: visible; background: #fff; }
-.watercolor-top, .watercolor-bottom { display: none; }
-.section { max-width: 1260px; margin: 0 auto; padding: 76px 48px; }
-.section-date { min-height: 0; padding-top: 80px; padding-bottom: 105px; }
-.section-date .eyebrow { margin-bottom: 13px; color: var(--gold); font: 400 clamp(21px, 2.8vw, 36px)/1.2 'Playfair Display', serif; letter-spacing: 0; text-transform: none; }
-.intro-names { margin: 0 0 24px; color: var(--forest); font: 400 clamp(45px, 6vw, 82px)/1.1 'Playfair Display', serif; }
-.intro-names span { color: var(--gold); }
-.event-date { margin: 0 0 8px; color: var(--gold); font: 700 clamp(21px, 2.3vw, 31px)/1.3 'Playfair Display', serif; font-style: normal; text-transform: uppercase; }
-.countdown { margin: 0 0 19px; color: var(--gold); font-size: 13px; letter-spacing: .07em; }
-.event-place { max-width: none; margin: 0 0 20px; color: var(--forest); font: 400 clamp(25px, 3vw, 40px)/1.25 'Playfair Display', serif; text-transform: uppercase; }
-.invitation-line { margin: 0 0 28px; color: var(--leaf); font: italic clamp(18px, 2.2vw, 26px)/1.4 'Playfair Display', serif; }
-.section-title { color: var(--forest); }
-.section-kicker, .eyebrow { color: var(--gold); }
-.section-copy { color: #3D4D3F; }
-.view-details-link, .footer-brand { color: var(--leaf); }
-
-.btn-dark, .btn-outline, .btn-outline.btn-primary, .btn-modal-submit { justify-content: center; color: var(--forest); background: var(--almond); border: 1.5px solid var(--forest); border-radius: 999px; box-shadow: none; }
-.btn-dark:hover, .btn-outline:hover, .btn-outline.btn-primary:hover, .btn-modal-submit:hover { color: var(--gold-bright); background: var(--forest); border-color: var(--forest); box-shadow: 0 10px 22px rgba(0, 76, 34, .17); }
-.section-date .btn-primary { min-width: 252px; padding: 15px 30px; color: #fff; background: var(--forest); text-transform: uppercase; }
-.section-date .btn-primary:hover { color: var(--gold-bright); background: var(--forest); }
-
-.section-schedule { border-top: 1px solid #E8DBC2; }
-.venue-editorial { width: min(100%, 910px); min-height: 0; margin: 0 auto 35px; padding: 0; }
-.venue-exterior { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 3px; }
-.story-section { background: var(--almond); }
-.story-section .section-title { color: var(--forest); }
-.story-discover { margin-bottom: 0; }
-.site-footer { color: var(--forest); border-top-color: #E8DBC2; }
-.footer-link { color: var(--forest); }
-.side-nav { background: #FBF8F1; }
-.nav-link { color: var(--forest); }
-.nav-link:hover { color: var(--gold); }
-.story-overlay, .rsvp-overlay, .venue-overlay { background: var(--almond); }
-.story-reading h2, .rsvp-reading h2, .venue-reading h2 { color: var(--forest); }
-.venue-portrait-wrap img, .rsvp-image-wrap img { max-height: 76vh; aspect-ratio: 3 / 2; object-fit: cover; }
-.venue-map-button { color: var(--forest); background: #fff; }
-
-@media (max-width: 900px) {
-  .site-header { width: min(100% - 28px, 1260px); min-height: 72px; justify-content: space-between; }
-  .desktop-nav { display: none; }
-  .mobile-header-brand { display: flex; align-items: center; gap: 6px; color: var(--forest); font: 400 21px 'Playfair Display', serif; }
-  .mobile-header-brand img { width: 58px; height: 58px; }
-  .site-header .menu-btn { position: static; display: flex; z-index: 5; color: var(--forest); border-color: var(--forest); }
-  .menu-icon span { background: var(--forest); }
-  .hero-panel { width: min(100% - 28px, 1260px); height: auto; min-height: 0; aspect-ratio: 4 / 3; padding: 0; }
-  .hero-image, .hero-overlay { inset: 0; border-radius: 0; }
-  .hero-venue { background-position: center; }
-  .hero-monogram { top: 22%; width: clamp(76px, 15vw, 112px); }
-  .content-panel { height: auto; }
-  .section { padding: 58px 24px; }
-  .section-date { min-height: 0; padding-top: 62px; padding-bottom: 70px; }
-}
-
-@media (max-width: 600px) {
-  .site-header { min-height: 66px; }
-  .mobile-header-brand { font-size: 17px; }
-  .mobile-header-brand img { width: 46px; height: 46px; }
-  .site-header .menu-btn { top: auto; padding: 8px 11px; }
-  .hero-panel { height: auto; min-height: 0; aspect-ratio: 1 / 1; padding: 0; }
-  .hero-image, .hero-overlay { inset: 0; border-radius: 0; }
-  .hero-venue { background-position: center; }
-  .hero-monogram { top: 22%; width: 74px; }
-  .intro-names { font-size: clamp(40px, 11vw, 58px); }
-  .event-date { font-size: 20px; }
-  .event-place { font-size: 29px; }
-  .section-date { min-height: 0; padding-top: 56px; padding-bottom: 68px; }
-  .venue-editorial { min-height: 0; padding: 0; }
-  .venue-exterior { width: 100%; height: auto; border-radius: 3px; }
-  .venue-portrait-wrap, .rsvp-image-wrap { width: 100%; }
-  .venue-portrait-wrap img, .rsvp-image-wrap img { width: 100%; max-height: none; aspect-ratio: 3 / 2; }
-}
-
 :focus-visible {
   outline: 2px solid #1D5A7D;
   outline-offset: 4px;
@@ -1427,4 +1331,145 @@ html, body { height: auto; min-height: 100%; overflow-x: hidden; overflow-y: aut
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* The original split invitation remains intact; navigation lives above it. */
+.site-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 76px;
+  padding: 0 clamp(20px, 3vw, 54px);
+  background: #fbf8f1;
+  border-bottom: 1px solid rgba(66, 83, 63, .18);
+}
+
+.desktop-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 58px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(13px, 1.6vw, 28px);
+  width: 100%;
+  max-width: 1450px;
+  margin: auto;
+}
+
+.nav-group { display: flex; align-items: center; justify-content: space-around; gap: 10px; }
+.nav-group a {
+  color: #42533f;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+.nav-group a:hover, .nav-group a:focus-visible { color: #a88138; }
+.header-brand { display: block; width: 58px; height: 58px; }
+.header-brand img { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+.mobile-brand, .site-header .menu-btn { display: none; }
+.layout { height: calc(100vh - 76px); height: calc(100dvh - 76px); }
+.venue-ceremony { object-position: center 25%; }
+.venue-exterior { object-position: center; }
+.side-nav { overflow-y: auto; }
+body.menu-open { overflow: hidden; }
+
+/* Additional sections use the same full-screen presentation as story and venue. */
+.info-overlay {
+  position: fixed;
+  z-index: 1500;
+  inset: 0;
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 74px);
+  background: #f1ebdd;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+.info-overlay.active { opacity: 1; visibility: visible; }
+.info-overlay-inner {
+  display: grid;
+  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.35fr);
+  gap: clamp(34px, 7vw, 110px);
+  align-items: center;
+  width: min(100%, 1280px);
+  min-height: 100%;
+  margin: 0 auto;
+}
+.info-cover {
+  display: block;
+  width: 100%;
+  max-height: 74vh;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  box-shadow: 0 22px 55px rgba(43, 43, 30, .16);
+}
+.info-floral { display: grid; place-items: center; min-height: 420px; }
+.info-floral img { display: block; width: min(100%, 420px); filter: drop-shadow(0 15px 24px rgba(43,43,30,.12)); }
+.info-reading { max-width: 670px; padding: 16px 0 30px; color: #31362d; }
+.info-reading h2, .photos-overlay-inner h2 {
+  margin: 4px 0 18px;
+  color: #202018;
+  font: 400 clamp(48px, 6vw, 84px)/.95 'Lobster', cursive;
+}
+.info-reading p { max-width: 640px; margin: 0 0 21px; font-size: 17px; line-height: 1.85; }
+.info-reading .info-lead, .photos-overlay-inner .info-lead {
+  color: #51604d;
+  font: italic clamp(20px, 2.2vw, 30px)/1.45 'Playfair Display', serif;
+}
+.info-rule { width: 78px; height: 1px; margin: 25px 0 28px; background: #c4a36a; }
+.overlay-close {
+  position: fixed;
+  z-index: 2;
+  top: clamp(17px, 3vw, 38px);
+  right: clamp(20px, 4vw, 58px);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  color: #42533f;
+  background: rgba(251, 248, 241, .9);
+  border: 1px solid #42533f;
+  border-radius: 50%;
+  font: 400 42px/1 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background .22s ease, color .22s ease, transform .22s ease;
+}
+.overlay-close:hover { color: #d8b86f; background: #42533f; transform: rotate(90deg); }
+.photos-overlay-inner { width: min(100%, 1180px); min-height: 100%; margin: auto; padding: 30px 0; text-align: center; }
+.photos-overlay-inner .info-lead { max-width: 620px; margin: 0 auto 36px; }
+.photos-overlay-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.photos-overlay-grid img { display: block; width: 100%; height: clamp(270px, 42vw, 490px); object-fit: cover; box-shadow: 0 15px 30px rgba(43,43,30,.14); }
+.photos-overlay-grid img:nth-child(2) { object-position: center 28%; }
+body.overlay-open { overflow: hidden; }
+
+@media (max-width: 1180px) {
+  .desktop-nav { display: none; }
+  .mobile-brand { display: flex; align-items: center; gap: 8px; color: #42533f; font: 400 22px 'Lobster', cursive; text-decoration: none; }
+  .mobile-brand img { width: 48px; height: 48px; object-fit: contain; border-radius: 50%; }
+  .site-header .menu-btn { position: static; display: flex; margin-left: auto; color: #42533f; border-color: #42533f; }
+  .site-header .menu-icon span { background: #42533f; }
+}
+
+@media (max-width: 900px) {
+  .layout { height: auto; min-height: calc(100dvh - 76px); }
+}
+
+@media (max-width: 760px) {
+  .site-header { height: 66px; padding: 0 16px; }
+  .mobile-brand { font-size: 20px; }
+  .mobile-brand img { width: 42px; height: 42px; }
+  .info-overlay { padding: 84px 24px 34px; }
+  .info-overlay-inner { display: block; }
+  .info-cover { width: 100%; max-height: none; aspect-ratio: 16 / 10; margin: 0 auto 40px; }
+  .info-floral { min-height: 0; width: min(70%, 280px); margin: 0 auto 30px; }
+  .info-reading { margin: 0 auto; }
+  .info-reading h2, .photos-overlay-inner h2 { font-size: 54px; }
+  .info-reading p { font-size: 16px; line-height: 1.8; }
+  .overlay-close { width: 45px; height: 45px; font-size: 36px; }
+  .photos-overlay-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .photos-overlay-grid img { height: 240px; }
+  .photos-overlay-grid img:last-child { grid-column: 1 / -1; height: 300px; }
 }

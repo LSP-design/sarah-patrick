@@ -3,7 +3,7 @@ const contentPanel = document.getElementById('contentPanel');
 const menuButton = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideNav');
 const navOverlay = document.getElementById('navOverlay');
-const rsvpModal = document.getElementById('rsvpModal');
+const rsvpOverlay = document.getElementById('rsvpOverlay');
 const storyOverlay = document.getElementById('storyOverlay');
 const guestName = document.getElementById('guestName');
 const rsvpStatus = document.getElementById('rsvpStatus');
@@ -78,21 +78,21 @@ function openRSVP() {
   closeMenu();
   previousFocus = document.activeElement;
   rsvpStatus.textContent = '';
-  rsvpModal.inert = false;
+  rsvpOverlay.inert = false;
   layout.inert = true;
-  document.body.classList.add('modal-open');
-  rsvpModal.classList.add('active');
+  document.body.classList.add('rsvp-open');
+  rsvpOverlay.classList.add('active');
   clearTimeout(focusTimer);
-  focusTimer = setTimeout(() => guestName.focus(), reducedMotion.matches ? 0 : 300);
+  focusTimer = setTimeout(() => rsvpOverlay.querySelector('.rsvp-close').focus(), reducedMotion.matches ? 0 : 220);
 }
 
 function closeRSVP() {
   clearTimeout(focusTimer);
-  if (!rsvpModal.classList.contains('active')) return;
-  rsvpModal.classList.remove('active');
-  rsvpModal.inert = true;
+  if (!rsvpOverlay.classList.contains('active')) return;
+  rsvpOverlay.classList.remove('active');
+  rsvpOverlay.inert = true;
   layout.inert = false;
-  document.body.classList.remove('modal-open');
+  document.body.classList.remove('rsvp-open');
   previousFocus?.focus();
 }
 
@@ -143,8 +143,8 @@ guestName.addEventListener('input', () => {
   guestName.setCustomValidity('');
   rsvpStatus.textContent = '';
 });
-rsvpModal.addEventListener('click', event => {
-  if (event.target === rsvpModal) closeRSVP();
+rsvpOverlay.addEventListener('click', event => {
+  if (event.target === rsvpOverlay) closeRSVP();
 });
 
 document.addEventListener('keydown', event => {
@@ -153,7 +153,7 @@ document.addEventListener('keydown', event => {
     closeRSVP();
     closeStory();
   }
-  const activeDialog = storyOverlay.classList.contains('active') ? storyOverlay : rsvpModal.classList.contains('active') ? rsvpModal :
+  const activeDialog = storyOverlay.classList.contains('active') ? storyOverlay : rsvpOverlay.classList.contains('active') ? rsvpOverlay :
     sideNav.classList.contains('active') ? sideNav : null;
   if (event.key !== 'Tab' || !activeDialog) return;
   const focusable = activeDialog.querySelectorAll('a[href], button, input');

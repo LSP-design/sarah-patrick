@@ -1179,6 +1179,90 @@ body.story-open { overflow: hidden; }
   .story-close { width: 45px; height: 45px; font-size: 36px; }
 }
 
+/* The two hero actions now share one aligned invitation bar. */
+.hero-bottom-bar {
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero-bottom-bar .hero-action {
+  flex: 1 1 0;
+  max-width: 260px;
+  min-height: 46px;
+  padding: 11px 14px;
+  font-size: 12px;
+  letter-spacing: .035em;
+}
+
+.story-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story-section .section-title { margin-bottom: 20px; }
+.story-discover { margin: 0 0 34px; }
+.story-preview-photo { order: 4; margin: 0 auto; }
+
+/* Reservation has the same full-screen, editorial treatment as the story. */
+.rsvp-overlay {
+  position: fixed;
+  z-index: 1500;
+  inset: 0;
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 74px);
+  background: #F1EBDD;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+.rsvp-overlay.active { opacity: 1; visibility: visible; }
+.rsvp-overlay-inner {
+  display: grid;
+  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.35fr);
+  gap: clamp(34px, 7vw, 110px);
+  width: min(100%, 1280px);
+  min-height: 100%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.rsvp-image-wrap { position: relative; margin: 0; }
+.rsvp-image-wrap::before { content: ''; position: absolute; inset: -18px 16px 18px -18px; border: 1px solid #C4A36A; }
+.rsvp-image-wrap img { position: relative; display: block; width: 100%; max-height: 74vh; object-fit: cover; box-shadow: 0 22px 55px rgba(43, 43, 30, .16); }
+.rsvp-reading { max-width: 670px; padding: 16px 0 30px; color: #31362d; }
+.rsvp-reading h2 { margin: 4px 0 18px; color: #202018; font: 400 clamp(48px, 6vw, 84px)/.95 'Lobster', cursive; }
+.rsvp-lead { max-width: 620px; margin: 0 0 25px; color: #51604d; font: italic clamp(20px, 2.2vw, 30px)/1.45 'Playfair Display', serif; }
+.rsvp-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; margin: 0 0 27px; padding: 20px 0; border-top: 1px solid rgba(196, 163, 106, .8); border-bottom: 1px solid rgba(196, 163, 106, .8); }
+.rsvp-facts div { min-width: 0; }
+.rsvp-facts dt { margin-bottom: 7px; color: #927643; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.rsvp-facts dd { margin: 0; color: #303a30; font: 400 18px/1.35 'Playfair Display', serif; }
+.rsvp-note { max-width: 630px; margin: 0 0 21px; font-size: 16px; line-height: 1.75; }
+.rsvp-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: start; max-width: 630px; }
+.rsvp-form .modal-input { width: 100%; min-height: 48px; }
+.rsvp-form .btn-modal-submit { min-height: 48px; padding-inline: 19px; white-space: nowrap; }
+.rsvp-form .modal-status { grid-column: 1 / -1; margin: 0; }
+.rsvp-close { position: fixed; z-index: 2; top: clamp(17px, 3vw, 38px); right: clamp(20px, 4vw, 58px); display: grid; place-items: center; width: 52px; height: 52px; padding: 0; border: 1px solid #42533F; border-radius: 50%; color: #42533F; background: rgba(251, 248, 241, .88); font: 400 42px/1 'Inter', sans-serif; cursor: pointer; transition: background .22s ease, color .22s ease, transform .22s ease; }
+.rsvp-close:hover { color: #D8B86F; background: #42533F; transform: rotate(90deg); }
+body.rsvp-open { overflow: hidden; }
+
+@media (max-width: 760px) {
+  .hero-bottom-bar { gap: 7px; padding: 9px; }
+  .hero-bottom-bar .hero-action { min-height: 40px; padding: 8px 9px; font-size: 10px; line-height: 1.2; }
+  .rsvp-overlay { padding: 84px 24px 34px; }
+  .rsvp-overlay-inner { display: block; }
+  .rsvp-image-wrap { width: min(74%, 340px); margin: 0 auto 42px; }
+  .rsvp-image-wrap img { max-height: none; aspect-ratio: 4 / 5; }
+  .rsvp-reading { margin: 0 auto; }
+  .rsvp-reading h2 { font-size: 54px; }
+  .rsvp-facts { grid-template-columns: 1fr; gap: 14px; }
+  .rsvp-facts dd { font-size: 18px; }
+  .rsvp-form { grid-template-columns: 1fr; }
+  .rsvp-form .btn-modal-submit { width: 100%; }
+  .rsvp-close { width: 45px; height: 45px; font-size: 36px; }
+}
+
 :focus-visible {
   outline: 2px solid #1D5A7D;
   outline-offset: 4px;

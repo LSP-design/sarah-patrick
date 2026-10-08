@@ -40,13 +40,12 @@
           <i aria-hidden="true"></i>
           <span>North Hatley, Québec</span>
         </div>
-        <a class="hero-welcome" href="#notre-histoire" onclick="openStory(); return false;"><strong>Découvrir notre histoire</strong><span>Sarah &amp; Patrick</span></a>
       </div>
 
       <!-- Bottom Bar -->
       <div class="hero-bottom-bar">
-        <span class="bottom-bar-date">15 mai 2027</span>
-        <button class="btn-dark" onclick="openRSVP()">Réservez votre place</button>
+        <button class="btn-dark hero-action" type="button" onclick="openStory()">Découvrir notre histoire</button>
+        <button class="btn-dark hero-action" type="button" onclick="openRSVP()">Réservez votre place</button>
       </div>
     </div>
 
@@ -134,10 +133,10 @@
         </div>
 
         <div class="section story-section" id="section-story">
-          <img class="section-photo portrait" src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
           <p class="section-kicker">Notre histoire</p>
           <p class="section-title">Sarah &amp; Patrick</p>
-          <p class="section-copy">Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
+          <button class="btn-outline btn-primary story-discover" type="button" onclick="openStory()">Découvrir notre histoire</button>
+          <img class="section-photo portrait story-preview-photo" src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement">
         </div>
 
         <div class="section" id="section-programme">
@@ -255,20 +254,30 @@
     </div>
   </section>
 
-  <!-- RSVP Modal -->
-  <div class="modal-overlay" id="rsvpModal" inert>
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-describedby="rsvpDescription">
-      <button class="modal-close" onclick="closeRSVP()" aria-label="Fermer la fenêtre">&times;</button>
-      <h2 class="modal-title" id="rsvpTitle">Réservez votre place</h2>
-      <p class="modal-text" id="rsvpDescription">Entrez votre nom pour accéder aux détails de votre invitation.</p>
-      <form id="rsvpForm">
-        <label class="sr-only" for="guestName">Prénom et nom</label>
-        <input type="text" class="modal-input" placeholder="Prénom et nom" id="guestName" name="guestName" autocomplete="name" maxlength="120" required>
-        <button class="btn-dark btn-modal-submit" type="submit">Accéder à mon invitation</button>
-        <p class="modal-status" id="rsvpStatus" role="status" aria-live="polite"></p>
-      </form>
+  <!-- Full-screen reservation page. -->
+  <section class="rsvp-overlay" id="rsvpOverlay" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-describedby="rsvpDescription" inert>
+    <button class="rsvp-close" type="button" onclick="closeRSVP()" aria-label="Fermer les informations de réservation">&times;</button>
+    <div class="rsvp-overlay-inner">
+      <aside class="rsvp-image-wrap"><img src="assets/venue/manoir-ceremony-garden.webp" alt="Jardins d’ambiance du Manoir Hovey"></aside>
+      <article class="rsvp-reading">
+        <p class="section-kicker">Sarah &amp; Patrick</p>
+        <h2 id="rsvpTitle">Réservez votre place</h2>
+        <p class="rsvp-lead" id="rsvpDescription">Nous avons hâte de vous accueillir pour cette journée exceptionnelle.</p>
+        <dl class="rsvp-facts">
+          <div><dt>Date</dt><dd>Samedi 15 mai 2027</dd></div>
+          <div><dt>Lieu</dt><dd>Manoir Hovey</dd></div>
+          <div><dt>Destination</dt><dd>North Hatley, Québec</dd></div>
+        </dl>
+        <p class="rsvp-note">Les horaires, le menu et les détails de votre invitation seront communiqués aux invités lorsque les réponses seront ouvertes.</p>
+        <form id="rsvpForm" class="rsvp-form">
+          <label class="sr-only" for="guestName">Prénom et nom</label>
+          <input type="text" class="modal-input" placeholder="Prénom et nom" id="guestName" name="guestName" autocomplete="name" maxlength="120" required>
+          <button class="btn-dark btn-modal-submit" type="submit">Accéder à mon invitation</button>
+          <p class="modal-status" id="rsvpStatus" role="status" aria-live="polite"></p>
+        </form>
+      </article>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>

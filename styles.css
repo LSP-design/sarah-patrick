@@ -837,6 +837,122 @@ body.modal-open {
 
 .modal-status:empty { display: none; }
 
+/* Editorial hero: a centered portrait, with the wedding details held inside it. */
+.hero-panel {
+  background: #e9e1d1;
+  padding: 34px 7% 112px;
+}
+
+.hero-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(200, 169, 108, 0.36), transparent 31%),
+    radial-gradient(circle at 84% 73%, rgba(66, 83, 63, 0.26), transparent 32%),
+    #e9e1d1;
+}
+
+.hero-image,
+.hero-overlay {
+  inset: 34px 9% 112px;
+  border-radius: 180px 180px 8px 8px;
+}
+
+.hero-image {
+  z-index: 1;
+  background-position: center 26%;
+  box-shadow: 0 24px 60px rgba(37, 42, 30, 0.23);
+}
+
+.hero-overlay {
+  z-index: 2;
+  background: linear-gradient(0deg, rgba(20, 24, 18, 0.7) 0%, rgba(20, 24, 18, 0.14) 58%, rgba(20, 24, 18, 0) 100%);
+}
+
+.menu-btn { z-index: 5; }
+
+.hero-content {
+  z-index: 3;
+  bottom: 142px;
+  padding: 0 15%;
+  text-align: center;
+}
+
+.hero-kicker {
+  margin: 0 0 9px;
+  color: #f7ebcc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero-title { margin-bottom: 8px; }
+
+.hero-subtitle {
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.hero-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  margin-top: 18px;
+  color: #fff4d9;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hero-details i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d7b677;
+}
+
+.hero-bottom-bar {
+  z-index: 4;
+  left: 12%;
+  right: 12%;
+  margin: 0 0 20px;
+  background: rgba(253, 249, 239, 0.9);
+  border: 1px solid rgba(191, 160, 102, 0.55);
+  box-shadow: 0 10px 30px rgba(45, 43, 31, 0.12);
+}
+
+.hero-bottom-bar .btn-dark { background: #42533F; }
+.hero-bottom-bar .btn-dark:hover { background: #263b2a; }
+
+.photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.photo-grid img:first-child { object-position: center 24%; }
+
+@media (max-width: 900px) {
+  .hero-panel { padding: 18px 8% 92px; }
+  .hero-image, .hero-overlay { inset: 18px 8% 92px; border-radius: 130px 130px 6px 6px; }
+  .hero-content { bottom: 118px; padding: 0 13%; }
+  .hero-kicker { font-size: 9px; }
+  .hero-details { margin-top: 13px; font-size: 9px; }
+  .hero-bottom-bar { left: 8%; right: 8%; margin-bottom: 13px; }
+  .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .hero-panel { padding: 14px 9% 78px; }
+  .hero-image, .hero-overlay { inset: 14px 9% 78px; border-radius: 100px 100px 5px 5px; }
+  .hero-content { bottom: 94px; padding: 0 13%; }
+  .hero-title { font-size: 34px; }
+  .hero-subtitle { font-size: 12px; line-height: 1.45; }
+  .hero-details { gap: 7px; font-size: 8px; white-space: nowrap; }
+  .hero-bottom-bar { left: 9%; right: 9%; margin-bottom: 10px; }
+  .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .photo-grid img:last-child { grid-column: 1 / -1; height: 230px; }
+}
+
 :focus-visible {
   outline: 2px solid #1D5A7D;
   outline-offset: 4px;

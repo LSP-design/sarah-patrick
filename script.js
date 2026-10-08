@@ -1,114 +1,145 @@
-// ===== COUNTDOWN TIMER =====
+const eventDate = new Date('2024-05-18T00:00:00-04:00');
+const contentPanel = document.getElementById('contentPanel');
+const menuButton = document.getElementById('menuBtn');
+const sideNav = document.getElementById('sideNav');
+const navOverlay = document.getElementById('navOverlay');
+const rsvpModal = document.getElementById('rsvpModal');
+const guestName = document.getElementById('guestName');
+const rsvpStatus = document.getElementById('rsvpStatus');
+const layout = document.querySelector('.layout');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let previousFocus = null;
+let focusTimer;
+
+// May 18, 2024 is intentionally retained from the supplied specification.
 function updateCountdown() {
-  const eventDate = new Date('2024-05-18T00:00:00');
-    const now = new Date();
-      const diff = Math.abs(now - eventDate);
+  const now = new Date();
+  const elapsed = Math.floor(Math.abs(now - eventDate) / 1000);
+  const days = Math.floor(elapsed / 86400);
+  const hours = Math.floor((elapsed % 86400) / 3600);
+  const mins = Math.floor((elapsed % 3600) / 60);
+  const secs = elapsed % 60;
+  document.getElementById('countdown').textContent =
+    `${days} days ${hours} hrs ${mins} mins ${secs} secs${now >= eventDate ? ' ago' : ''}`;
+}
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-              const secs = Math.floor((diff % (1000 * 60)) / 1000);
+function openMenu() {
+  closeRSVP();
+  previousFocus = document.activeElement;
+  sideNav.inert = false;
+  layout.inert = true;
+  sideNav.classList.add('active');
+  navOverlay.classList.add('active');
+  menuButton.setAttribute('aria-expanded', 'true');
+  sideNav.querySelector('.nav-close').focus();
+}
 
-                const el = document.getElementById('countdown');
-                  if (el) {
-                      if (now > eventDate) {
-                            el.textContent = `${days} days ${hours} hrs ${mins} mins ${secs} secs ago`;
-                                } else {
-                                      el.textContent = `${days} days ${hours} hrs ${mins} mins ${secs} secs`;
-                                          }
-                                            }
-                                            }
+function closeMenu() {
+  if (!sideNav.classList.contains('active')) return;
+  sideNav.classList.remove('active');
+  navOverlay.classList.remove('active');
+  menuButton.setAttribute('aria-expanded', 'false');
+  sideNav.inert = true;
+  layout.inert = false;
+  previousFocus?.focus();
+}
 
-                                            updateCountdown();
-                                            setInterval(updateCountdown, 1000);
+function showPage(pageName) {
+  const target = document.getElementById(`page-${pageName}`);
+  if (!target) return;
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.toggle('active', page === target);
+  });
+  contentPanel.scrollTop = 0;
+  handleScrollAnimations();
+}
 
-                                            // ===== MENU =====
-                                            function openMenu() {
-                                              document.getElementById('sideNav').classList.add('active');
-                                                document.getElementById('navOverlay').classList.add('active');
-                                                  document.body.style.overflow = 'hidden';
-                                                  }
+function scrollToSection(sectionName) {
+  if (!document.getElementById('page-home').classList.contains('active')) {
+    showPage('home');
+  }
+  const section = document.getElementById(`section-${sectionName}`);
+  if (!section) return;
+  const offset = section.getBoundingClientRect().top - contentPanel.getBoundingClientRect().top;
+  contentPanel.scrollTo({
+    top: contentPanel.scrollTop + offset,
+    behavior: reducedMotion.matches ? 'instant' : 'smooth'
+  });
+}
 
-                                                  function closeMenu() {
-                                                    document.getElementById('sideNav').classList.remove('active');
-                                                      document.getElementById('navOverlay').classList.remove('active');
-                                                        document.body.style.overflow = '';
-                                                        }
+function openRSVP() {
+  closeMenu();
+  previousFocus = document.activeElement;
+  rsvpStatus.textContent = '';
+  rsvpModal.inert = false;
+  layout.inert = true;
+  rsvpModal.classList.add('active');
+  clearTimeout(focusTimer);
+  focusTimer = setTimeout(() => guestName.focus(), reducedMotion.matches ? 0 : 300);
+}
 
-                                                        document.getElementById('menuBtn').addEventListener('click', openMenu);
+function closeRSVP() {
+  clearTimeout(focusTimer);
+  if (!rsvpModal.classList.contains('active')) return;
+  rsvpModal.classList.remove('active');
+  rsvpModal.inert = true;
+  layout.inert = false;
+  previousFocus?.focus();
+}
 
-                                                        // Close menu on Escape key
-                                                        document.addEventListener('keydown', function(e) {
-                                                          if (e.key === 'Escape') {
-                                                              closeMenu();
-                                                                  closeRSVP();
-                                                                    }
-                                                                    });
+function submitRSVP(event) {
+  event.preventDefault();
+  if (!guestName.value.trim()) {
+    guestName.setCustomValidity('Veuillez saisir votre prénom et votre nom.');
+    guestName.reportValidity();
+    return;
+  }
+  // Presentation only: no guest list or RSVP service was supplied.
+  rsvpStatus.textContent = 'Les détails des invitations seront bientôt disponibles. Pour confirmer votre présence, veuillez contacter Sarah et Patrick.';
+}
 
-                                                                    // ===== PAGE NAVIGATION =====
-                                                                    function showPage(pageName) {
-                                                                      const pages = document.querySelectorAll('.page');
-                                                                        pages.forEach(p => p.classList.remove('active'));
+function handleScrollAnimations() {
+  const panelRect = contentPanel.getBoundingClientRect();
+  contentPanel.querySelectorAll('.page.active .section').forEach(section => {
+    if (section.getBoundingClientRect().top < panelRect.bottom - 50) {
+      section.classList.add('visible');
+    }
+  });
+}
 
-                                                                          const target = document.getElementById('page-' + pageName);
-                                                                            if (target) {
-                                                                                target.classList.add('active');
-                                                                                    // Scroll content panel to top
-                                                                                        document.getElementById('contentPanel').scrollTop = 0;
-                                                                                          }
-                                                                                          }
+menuButton.addEventListener('click', openMenu);
+document.getElementById('rsvpForm').addEventListener('submit', submitRSVP);
+guestName.addEventListener('input', () => {
+  guestName.setCustomValidity('');
+  rsvpStatus.textContent = '';
+});
+rsvpModal.addEventListener('click', event => {
+  if (event.target === rsvpModal) closeRSVP();
+});
 
-                                                                                          // ===== RSVP MODAL =====
-                                                                                          function openRSVP() {
-                                                                                            document.getElementById('rsvpModal').classList.add('active');
-                                                                                              document.body.style.overflow = 'hidden';
-                                                                                                setTimeout(() => {
-                                                                                                    document.getElementById('guestName').focus();
-                                                                                                      }, 300);
-                                                                                                      }
-                                                                                                      
-                                                                                                      function closeRSVP() {
-                                                                                                        document.getElementById('rsvpModal').classList.remove('active');
-                                                                                                          document.body.style.overflow = '';
-                                                                                                          }
-                                                                                                          
-                                                                                                          function submitRSVP() {
-                                                                                                            const name = document.getElementById('guestName').value.trim();
-                                                                                                              if (name) {
-                                                                                                                  alert('Bienvenue, ' + name + '! Les details de l\'evenement seront bientot disponibles.');
-                                                                                                                      closeRSVP();
-                                                                                                                        }
-                                                                                                                        }
-                                                                                                                        
-                                                                                                                        // Submit on Enter key in RSVP input
-                                                                                                                        document.getElementById('guestName').addEventListener('keydown', function(e) {
-                                                                                                                          if (e.key === 'Enter') {
-                                                                                                                              submitRSVP();
-                                                                                                                                }
-                                                                                                                                });
-                                                                                                                                
-                                                                                                                                // ===== SCROLL ANIMATIONS =====
-                                                                                                                                const contentPanel = document.getElementById('contentPanel');
-                                                                                                                                
-                                                                                                                                function handleScrollAnimations() {
-                                                                                                                                  const sections = contentPanel.querySelectorAll('.section');
-                                                                                                                                    sections.forEach(section => {
-                                                                                                                                        const rect = section.getBoundingClientRect();
-                                                                                                                                            const panelRect = contentPanel.getBoundingClientRect();
-                                                                                                                                            
-                                                                                                                                                if (rect.top < panelRect.bottom - 50) {
-                                                                                                                                                      section.classList.add('visible');
-                                                                                                                                                          }
-                                                                                                                                                            });
-                                                                                                                                                            }
-                                                                                                                                                            
-                                                                                                                                                            contentPanel.addEventListener('scroll', handleScrollAnimations);
-                                                                                                                                                            handleScrollAnimations();
-                                                                                                                                                            
-                                                                                                                                                            // ===== SMOOTH SCROLL FOR VIEW DETAILS =====
-                                                                                                                                                            document.querySelector('.scroll-indicator')?.addEventListener('click', function() {
-                                                                                                                                                              const scheduleSection = document.querySelector('.section-schedule');
-                                                                                                                                                                if (scheduleSection) {
-                                                                                                                                                                    scheduleSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                                                                                                                                                      }
-                                                                                                                                                                      });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeMenu();
+    closeRSVP();
+  }
+  const activeDialog = rsvpModal.classList.contains('active') ? rsvpModal :
+    sideNav.classList.contains('active') ? sideNav : null;
+  if (event.key !== 'Tab' || !activeDialog) return;
+  const focusable = activeDialog.querySelectorAll('a[href], button, input');
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && (document.activeElement === first || !activeDialog.contains(document.activeElement))) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !activeDialog.contains(document.activeElement))) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+contentPanel.addEventListener('scroll', handleScrollAnimations, { passive: true });
+window.addEventListener('resize', handleScrollAnimations);
+updateCountdown();
+setInterval(updateCountdown, 1000);
+handleScrollAnimations();
+document.documentElement.classList.add('js');

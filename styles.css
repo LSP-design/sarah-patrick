@@ -1194,8 +1194,6 @@ body.story-open { overflow: hidden; }
   letter-spacing: .035em;
 }
 
-.hero-bottom-bar .hero-action-single { max-width: 260px; }
-
 .story-section {
   display: flex;
   flex-direction: column;

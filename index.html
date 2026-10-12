@@ -55,7 +55,8 @@
 
       <!-- Bottom Bar -->
       <div class="hero-bottom-bar">
-        <button class="btn-dark hero-action hero-action-single" type="button" onclick="openRSVP()">Réservez votre place</button>
+        <button class="btn-dark hero-action" type="button" onclick="openInfo('welcomeOverlay')">Bienvenue</button>
+        <button class="btn-dark hero-action" type="button" onclick="openRSVP()">Réservez votre place</button>
       </div>
     </div>
 
@@ -303,6 +304,20 @@
           <button class="btn-dark btn-modal-submit" type="submit">Accéder à mon invitation</button>
           <p class="modal-status" id="rsvpStatus" role="status" aria-live="polite"></p>
         </form>
+      </article>
+    </div>
+  </section>
+
+  <section class="info-overlay page-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" inert>
+    <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page de bienvenue">&times;</button>
+    <div class="info-overlay-inner">
+      <img class="info-cover" src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick ensemble">
+      <article class="info-reading">
+        <p class="section-kicker">Nous nous marions !</p>
+        <h2 id="welcomeTitle">Bienvenue</h2>
+        <p class="info-lead">Sarah &amp; Patrick vous invitent à célébrer leur union.</p>
+        <div class="info-rule" aria-hidden="true"></div>
+        <p>Joignez-vous à nous le samedi 24 avril 2027 au Lac Carling, au Québec. Nous avons hâte de partager cette journée avec vous.</p>
       </article>
     </div>
   </section>

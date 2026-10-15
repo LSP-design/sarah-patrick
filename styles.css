@@ -1571,3 +1571,32 @@ body.overlay-open { overflow: hidden; }
     font-size: 12px;
   }
 }
+
+/* Client-approved invitation colours and wording. */
+.hero-title,
+.story-section .section-title {
+  color: var(--action-green);
+}
+
+.hero-title {
+  text-shadow:
+    0 1px 0 rgba(251, 248, 241, .92),
+    0 2px 14px rgba(251, 248, 241, .78);
+}
+
+.union-invitation {
+  max-width: 390px;
+  margin: -12px auto 28px;
+  padding: 7px 14px;
+  color: var(--action-green);
+  background: rgba(251, 248, 241, .86);
+  font: italic 15px/1.55 'Playfair Display', serif;
+}
+
+@media (max-width: 600px) {
+  .union-invitation {
+    max-width: 310px;
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+}

@@ -1642,19 +1642,23 @@ body.overlay-open { overflow: hidden; }
 
 @media (max-width: 600px) {
   .hero-panel {
-    height: calc(100svh - 66px);
-    min-height: 650px;
+    height: clamp(620px, calc(100svh - 66px), 700px);
+    min-height: 620px;
+    padding: 8px 2.5% 10px;
   }
 
   .hero-image,
   .hero-overlay {
-    inset: 14px 7% 18px;
+    inset: 8px 2.5% 10px;
+    border-radius: 76px 76px 6px 6px;
   }
 
   .hero-content {
-    bottom: 42px;
-    padding: 0 12%;
+    bottom: 28px;
+    padding: 0 9%;
   }
+
+  .hero-venue { background-position: center 48%; }
 
   .hero-invitation {
     max-width: 310px;

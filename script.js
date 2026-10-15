@@ -16,13 +16,15 @@ let menuReturnFocus = null;
 let focusTimer;
 
 function updateCountdown() {
+  const countdown = document.getElementById('countdown');
+  if (!countdown) return;
   const now = new Date();
   const elapsed = Math.floor(Math.abs(now - eventDate) / 1000);
   const days = Math.floor(elapsed / 86400);
   const hours = Math.floor((elapsed % 86400) / 3600);
   const mins = Math.floor((elapsed % 3600) / 60);
   const secs = elapsed % 60;
-  document.getElementById('countdown').textContent = now >= eventDate
+  countdown.textContent = now >= eventDate
     ? 'Le grand jour est arrivé !'
     : `${days} j · ${hours} h · ${mins} min · ${secs} s avant notre union`;
 }

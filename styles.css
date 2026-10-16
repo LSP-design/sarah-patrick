@@ -916,11 +916,20 @@ body.story-open { overflow: hidden; }
   opacity: 1;
   background-image: url('assets/venue/lac-carling-officiel.jpg');
   background-position: center;
+  animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
+}
+
+.hero-couple {
+  z-index: 2;
+  opacity: 0;
+  background-image: url('assets/source-photos/sp-1.jpg');
+  background-position: center 26%;
+  animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
 
 .hero-floral {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   left: -6%;
   bottom: 58px;
   width: min(43%, 330px);
@@ -931,14 +940,14 @@ body.story-open { overflow: hidden; }
 }
 
 .hero-overlay {
-  z-index: 2;
+  z-index: 3;
   background: linear-gradient(0deg, rgba(20, 24, 18, 0.7) 0%, rgba(20, 24, 18, 0.14) 58%, rgba(20, 24, 18, 0) 100%);
 }
 
 .menu-btn { z-index: 5; }
 
 .hero-content {
-  z-index: 3;
+  z-index: 4;
   bottom: 142px;
   padding: 0 15%;
   text-align: center;
@@ -1003,7 +1012,7 @@ body.story-open { overflow: hidden; }
 }
 
 .hero-bottom-bar {
-  z-index: 4;
+  z-index: 5;
   left: 12%;
   right: 12%;
   margin: 0 0 20px;
@@ -1022,14 +1031,14 @@ body.story-open { overflow: hidden; }
 .venue-editorial {
   position: relative;
   width: min(100%, 490px);
-  min-height: 375px;
+  min-height: 335px;
   margin: 4px auto 30px;
-  padding: 18px 0 0 11%;
+  padding: 18px 0 0;
 }
 
 .venue-exterior {
   display: block;
-  width: 89%;
+  width: 100%;
   height: 300px;
   object-fit: cover;
   border-radius: 150px 150px 6px 6px;
@@ -1092,6 +1101,19 @@ body.story-open { overflow: hidden; }
   50% { transform: translate3d(0, -8px, 0) rotate(-1deg); }
 }
 
+@keyframes venueFrame {
+  0% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
+  7%, 43% { opacity: 1; filter: saturate(1.03) sepia(0) brightness(1); transform: translateY(0) scale(1); }
+  50%, 93% { opacity: 0; filter: saturate(.72) sepia(.16) brightness(.9); transform: translateY(-16px) scale(1.035); }
+  100% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
+}
+
+@keyframes coupleFrame {
+  0%, 43% { opacity: 0; filter: saturate(.68) sepia(.18) brightness(.88); transform: translateY(20px) scale(.98); }
+  50%, 93% { opacity: 1; filter: saturate(1.04) sepia(0) brightness(1); transform: translateY(0) scale(1); }
+  100% { opacity: 0; filter: saturate(.7) sepia(.15) brightness(.9); transform: translateY(-18px) scale(1.035); }
+}
+
 @keyframes heroFrameIn {
   from { opacity: 0; transform: translateY(28px) scale(.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -1113,7 +1135,7 @@ body.story-open { overflow: hidden; }
   .hero-welcome { margin-top: 14px; padding: 9px 17px 8px; }
   .hero-bottom-bar { left: 8%; right: 8%; margin-bottom: 13px; }
   .photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .venue-editorial { min-height: 350px; }
+  .venue-editorial { min-height: 315px; }
   .venue-exterior { height: 278px; }
   .venue-ceremony { height: 170px; }
 }
@@ -1132,8 +1154,8 @@ body.story-open { overflow: hidden; }
   .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .photo-grid figure:last-child { grid-column: 1 / -1; }
   .photo-grid figure:last-child img { height: 230px; }
-  .venue-editorial { min-height: 310px; padding-left: 8%; }
-  .venue-exterior { width: 92%; height: 242px; border-radius: 115px 115px 5px 5px; }
+  .venue-editorial { min-height: 275px; padding-left: 0; }
+  .venue-exterior { width: 100%; height: 242px; border-radius: 115px 115px 5px 5px; }
   .venue-ceremony { width: 40%; height: 145px; border-width: 5px; }
   .venue-note { right: 0; bottom: 4px; min-width: 108px; padding: 11px 13px; }
   .venue-title-card { top: 29px; left: 0; padding: 11px 13px; }

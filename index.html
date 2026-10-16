@@ -20,14 +20,14 @@
         <a href="#lieu" onclick="openVenue(); return false;">Lieu</a>
         <a href="#programme" onclick="openInfo('programmeOverlay'); return false;">Programme</a>
       </div>
-      <a class="header-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp.jpeg" alt=""></a>
+      <a class="header-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp-heart.png" alt=""></a>
       <div class="nav-group">
         <a href="#reservation" onclick="openRSVP(); return false;">Réservez</a>
         <a href="#cadeau" onclick="openInfo('giftsOverlay'); return false;">Cadeau</a>
         <a href="#contact" onclick="openInfo('contactOverlay'); return false;">Contact</a>
       </div>
     </nav>
-    <a class="mobile-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp.jpeg" alt=""><span>Sarah &amp; Patrick</span></a>
+    <a class="mobile-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp-heart.png" alt=""><span>Sarah &amp; Patrick</span></a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Ouvrir le menu" aria-controls="sideNav" aria-expanded="false">
       <span class="menu-icon"><span></span><span></span><span></span></span>
       <span class="menu-text">MENU</span>
@@ -154,16 +154,6 @@
           <p class="section-copy">Les informations de contribution seront communiquées prochainement.</p>
         </div>
 
-        <div class="section section-app" id="section-app">
-          <p class="section-kicker">Photos</p>
-          <p class="section-title">Nos souvenirs</p>
-          <div class="photo-grid">
-            <figure><img src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick ensemble"><figcaption>Sarah &amp; Patrick <span>24·04·2027</span></figcaption></figure>
-            <figure><img src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick lors d’un événement"><figcaption>À célébrer <span>avec vous</span></figcaption></figure>
-            <figure><img src="assets/source-photos/sp-2.jpg" alt="Sarah et Patrick ensemble"><figcaption>Notre histoire <span>commence ici</span></figcaption></figure>
-          </div>
-        </div>
-
         <footer class="site-footer" id="section-contact">
           <span class="footer-brand">Sarah &amp; Patrick</span>
           <span class="footer-link">24 avril 2027</span>
@@ -239,6 +229,10 @@
         <p>Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
         <p class="story-placeholder">Cet espace plein écran est prêt à accueillir votre histoire complète, vos souvenirs et les mots que vous souhaitez partager avec vos invités.</p>
       </article>
+    </div>
+    <div class="story-gallery" aria-label="Photos de Sarah et Patrick">
+      <img src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick ensemble lors d’un événement" loading="lazy">
+      <img src="assets/source-photos/sp-2.jpg" alt="Un autre souvenir de Sarah et Patrick" loading="lazy">
     </div>
   </section>
 

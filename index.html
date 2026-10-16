@@ -23,7 +23,7 @@
       <a class="header-brand" href="#accueil" onclick="returnHome(); return false;" aria-label="Sarah et Patrick, accueil"><img src="assets/monogram-sp.jpeg" alt=""></a>
       <div class="nav-group">
         <a href="#reservation" onclick="openRSVP(); return false;">Réservez</a>
-        <a href="#dons" onclick="openInfo('giftsOverlay'); return false;">Dons</a>
+        <a href="#cadeau" onclick="openInfo('giftsOverlay'); return false;">Cadeau</a>
         <a href="#contact" onclick="openInfo('contactOverlay'); return false;">Contact</a>
       </div>
     </nav>
@@ -44,7 +44,7 @@
       <!-- Hero Content -->
       <div class="hero-content">
         <p class="hero-kicker">Nous nous marions !</p>
-        <h1 class="hero-title">Sarah & Patrick</h1>
+        <h1 class="hero-title"><span>Sarah</span> <span class="hero-ampersand">&amp;</span> <span>Patrick</span></h1>
         <p class="hero-date">24 avril 2027</p>
         <div class="hero-details" aria-label="Détails de l'événement">
           <span>Lac Carling</span>
@@ -52,6 +52,8 @@
           <span>Québec</span>
         </div>
         <p class="hero-invitation">Joignez-vous à nous pour célébrer notre union.</p>
+      </div>
+      <div class="hero-bottom-bar">
         <button class="btn-outline hero-action" type="button" onclick="openRSVP()">Réservez votre place</button>
       </div>
     </div>
@@ -222,7 +224,7 @@
     <a href="#lieu" class="nav-link" onclick="openVenue(); return false;">Lieu</a>
     <a href="#programme" class="nav-link" onclick="openInfo('programmeOverlay'); return false;">Programme</a>
     <a href="#reservation" class="nav-link" onclick="openRSVP(); return false;">Réservez</a>
-    <a href="#dons" class="nav-link" onclick="openInfo('giftsOverlay'); return false;">Dons</a>
+    <a href="#cadeau" class="nav-link" onclick="openInfo('giftsOverlay'); return false;">Cadeau</a>
     <a href="#contact" class="nav-link" onclick="openInfo('contactOverlay'); return false;">Contact</a>
   </nav>
 
@@ -303,11 +305,11 @@
   </section>
 
   <section class="info-overlay page-overlay" id="giftsOverlay" role="dialog" aria-modal="true" aria-labelledby="giftsTitle" inert>
-    <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page des dons">&times;</button>
+    <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page des cadeaux">&times;</button>
     <div class="info-overlay-inner">
       <div class="info-floral"><img src="assets/florals/peony-corner-yellow.webp" alt=""></div>
       <article class="info-reading">
-        <p class="section-kicker">Contribution aux mariés</p>
+        <p class="section-kicker">Cadeau aux mariés</p>
         <h2 id="giftsTitle">Merci</h2>
         <p class="info-lead">Votre présence à nos côtés compte énormément pour nous.</p>
         <div class="info-rule" aria-hidden="true"></div>

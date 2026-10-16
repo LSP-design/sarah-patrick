@@ -925,7 +925,7 @@ body.story-open { overflow: hidden; }
   z-index: 2;
   opacity: 0;
   background-image: url('assets/source-photos/sp-1.jpg');
-  background-size: 107% auto;
+  background-size: 110% auto;
   background-position: center 11%;
   background-repeat: no-repeat;
   animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
@@ -1611,13 +1611,13 @@ body.overlay-open { overflow: hidden; }
 }
 
 .hero-invitation {
-  display: table;
+  display: block;
   max-width: 410px;
-  margin: 16px auto 12px;
-  padding: 7px 15px;
+  margin: 0 auto;
+  padding: 0;
   color: var(--action-green);
-  background: rgba(251, 248, 241, .92);
-  box-shadow: 0 7px 18px rgba(20, 24, 18, .16);
+  background: transparent;
+  box-shadow: none;
   font: italic 15px/1.45 'Playfair Display', serif;
 }
 
@@ -1625,6 +1625,8 @@ body.overlay-open { overflow: hidden; }
   left: 9%;
   right: 9%;
   bottom: 22px;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .hero-bottom-bar .hero-action {
@@ -1693,14 +1695,14 @@ body.overlay-open { overflow: hidden; }
   .hero-venue { background-position: center 48%; }
 
   .hero-couple {
-    background-size: cover;
-    background-position: center top;
+    background-size: auto 104%;
+    background-position: center 8%;
   }
 
   .hero-invitation {
     max-width: 310px;
-    margin-top: 13px;
-    padding: 6px 11px;
+    margin: 0 auto;
+    padding: 0;
     font-size: 13px;
   }
 

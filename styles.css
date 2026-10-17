@@ -1842,7 +1842,16 @@ body.overlay-open { overflow: hidden; }
 .site-header .menu-btn:hover .menu-icon span,
 .site-header .menu-btn:focus-visible .menu-icon span { background: #0c0e1d; }
 
-/* Softer wedding-arch silhouette for the Lac Carling home photograph. */
+/* Exact square format requested for the Lac Carling home photograph. */
+.venue-editorial {
+  width: min(100%, 390px);
+  min-height: 0;
+  padding: 0;
+}
+
 .venue-exterior {
-  border-radius: 46% 46% 18% 18% / 38% 38% 18% 18%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 0;
 }

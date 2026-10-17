@@ -1841,3 +1841,8 @@ body.overlay-open { overflow: hidden; }
 .menu-btn:focus-visible .menu-icon span,
 .site-header .menu-btn:hover .menu-icon span,
 .site-header .menu-btn:focus-visible .menu-icon span { background: #0c0e1d; }
+
+/* Softer wedding-arch silhouette for the Lac Carling home photograph. */
+.venue-exterior {
+  border-radius: 46% 46% 18% 18% / 38% 38% 18% 18%;
+}

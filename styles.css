@@ -1375,8 +1375,25 @@ body.rsvp-open { overflow: hidden; }
 .layout { height: calc(100vh - 76px); height: calc(100dvh - 76px); }
 .venue-ceremony { object-position: center 25%; }
 .venue-exterior { object-position: center; }
-.side-nav { overflow-y: auto; }
+.side-nav { overflow: hidden; }
 body.menu-open { overflow: hidden; }
+
+/* The desktop home panel is a fixed presentation; menu pages own their scrolling. */
+@media (min-width: 901px) {
+  .content-panel { overflow: hidden; }
+  #page-home { height: 100%; }
+  #page-home > .section:not(.section-schedule),
+  #page-home > .site-footer { display: none; }
+  .section-schedule {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}
 
 /* Additional sections use the same full-screen presentation as story and venue. */
 .info-overlay {

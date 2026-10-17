@@ -1740,3 +1740,70 @@ body.overlay-open { overflow: hidden; }
   .hero-content { bottom: 102px; }
   .hero-invitation { margin: 9px auto 8px; padding-block: 4px; }
 }
+
+/* Client-approved button language: venue-card green, white serif text, gold hover. */
+.btn-dark,
+.btn-outline,
+.btn-outline.btn-primary,
+.btn-modal-submit,
+.hero-bottom-bar .hero-action {
+  min-height: 46px;
+  padding: 11px 25px;
+  color: #fffaf0;
+  background: #314635;
+  border: 1px solid #314635;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: color .22s ease, background .22s ease, border-color .22s ease;
+}
+
+.btn-dark:hover,
+.btn-outline:hover,
+.btn-outline.btn-primary:hover,
+.btn-modal-submit:hover,
+.hero-bottom-bar .hero-action:hover {
+  color: #314635;
+  background: #c4a36a;
+  border-color: #c4a36a;
+  box-shadow: none;
+  transform: none;
+}
+
+.menu-btn,
+.site-header .menu-btn {
+  color: #fffaf0;
+  background: #314635;
+  border-color: #314635;
+  border-radius: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.menu-btn .menu-icon span,
+.site-header .menu-btn .menu-icon span { background: #fffaf0; }
+
+.menu-btn:hover,
+.site-header .menu-btn:hover {
+  color: #314635;
+  background: #c4a36a;
+  border-color: #c4a36a;
+}
+
+.menu-btn:hover .menu-icon span,
+.site-header .menu-btn:hover .menu-icon span { background: #314635; }
+
+.story-close:hover,
+.venue-close:hover,
+.rsvp-close:hover,
+.overlay-close:hover,
+.nav-close:hover,
+.modal-close:hover {
+  color: #314635;
+  background: #c4a36a;
+  border-color: #c4a36a;
+}

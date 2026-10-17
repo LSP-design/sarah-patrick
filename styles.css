@@ -1582,10 +1582,6 @@ body.overlay-open { overflow: hidden; }
   color: var(--action-green);
 }
 
-.section-schedule > .section-kicker {
-  color: var(--action-green);
-}
-
 .hero-title {
   text-shadow:
     0 1px 0 rgba(251, 248, 241, .92),

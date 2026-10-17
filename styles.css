@@ -925,8 +925,8 @@ body.story-open { overflow: hidden; }
   z-index: 2;
   opacity: 0;
   background-image: url('assets/source-photos/sp-1.jpg');
-  background-size: 110% auto;
-  background-position: center 11%;
+  background-size: 114% auto;
+  background-position: center 5%;
   background-repeat: no-repeat;
   animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
@@ -1695,8 +1695,8 @@ body.overlay-open { overflow: hidden; }
   .hero-venue { background-position: center 48%; }
 
   .hero-couple {
-    background-size: auto 104%;
-    background-position: center 8%;
+    background-size: auto 108%;
+    background-position: center 2%;
   }
 
   .hero-invitation {

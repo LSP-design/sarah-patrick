@@ -1807,3 +1807,37 @@ body.overlay-open { overflow: hidden; }
   background: #c4a36a;
   border-color: #c4a36a;
 }
+
+/* Navigation controls are black, then gold on hover. */
+.nav-group a,
+.nav-link {
+  color: #0c0e1d;
+}
+
+.nav-group a:hover,
+.nav-group a:focus-visible,
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #a47d00;
+}
+
+.menu-btn,
+.site-header .menu-btn {
+  color: #fffaf0;
+  background: #0c0e1d;
+  border-color: #0c0e1d;
+}
+
+.menu-btn:hover,
+.menu-btn:focus-visible,
+.site-header .menu-btn:hover,
+.site-header .menu-btn:focus-visible {
+  color: #0c0e1d;
+  background: #c4a36a;
+  border-color: #c4a36a;
+}
+
+.menu-btn:hover .menu-icon span,
+.menu-btn:focus-visible .menu-icon span,
+.site-header .menu-btn:hover .menu-icon span,
+.site-header .menu-btn:focus-visible .menu-icon span { background: #0c0e1d; }

@@ -925,8 +925,8 @@ body.story-open { overflow: hidden; }
   z-index: 2;
   opacity: 0;
   background-image: url('assets/source-photos/sp-1.jpg');
-  background-size: 114% auto;
-  background-position: center 5%;
+  background-size: 110% auto;
+  background-position: center 20%;
   background-repeat: no-repeat;
   animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
@@ -1603,7 +1603,7 @@ body.overlay-open { overflow: hidden; }
 /* Keep the complete invitation on the Lac Carling photograph. */
 .hero-image,
 .hero-overlay {
-  inset: 34px 9% 112px;
+  inset: 18px 4.5% 104px;
 }
 
 .hero-content {
@@ -1668,14 +1668,14 @@ body.overlay-open { overflow: hidden; }
 
 @media (max-width: 600px) {
   .hero-panel {
-    height: clamp(620px, calc(100svh - 66px), 700px);
-    min-height: 620px;
+    height: clamp(650px, calc(100svh - 66px), 760px);
+    min-height: 650px;
     padding: 8px 2.5% 10px;
   }
 
   .hero-image,
   .hero-overlay {
-    inset: 8px 2.5% 82px;
+    inset: 4px 1.5% 90px;
     border-radius: 76px 76px 6px 6px;
   }
 
@@ -1695,8 +1695,8 @@ body.overlay-open { overflow: hidden; }
   .hero-venue { background-position: center 48%; }
 
   .hero-couple {
-    background-size: auto 108%;
-    background-position: center 2%;
+    background-size: auto 106%;
+    background-position: center 70%;
   }
 
   .hero-invitation {

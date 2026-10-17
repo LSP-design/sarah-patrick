@@ -855,7 +855,7 @@ body.modal-open {
 .story-overlay-inner { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.35fr); gap: clamp(34px, 7vw, 110px); width: min(100%, 1280px); min-height: 100%; margin: 0 auto; align-items: center; }
 .story-portrait-wrap { position: relative; align-self: center; }
 .story-portrait-wrap::before { content: ''; position: absolute; inset: -18px 16px 18px -18px; border: 1px solid #C4A36A; }
-.story-portrait-wrap img { position: relative; display: block; width: 100%; max-height: 74vh; object-fit: cover; object-position: center 24%; box-shadow: 0 22px 55px rgba(43, 43, 30, .16); }
+.story-portrait-wrap img { position: relative; display: block; width: 100%; height: auto; max-height: 74vh; object-fit: contain; object-position: center; box-shadow: 0 22px 55px rgba(43, 43, 30, .16); }
 .story-reading { max-width: 670px; padding: 16px 0 30px; color: #31362d; }
 .story-reading h2 { margin: 4px 0 18px; color: #202018; font: 400 clamp(48px, 6vw, 84px)/.95 'Lobster', cursive; }
 .story-reading p { max-width: 660px; margin: 0 0 21px; font-size: 17px; line-height: 1.9; }
@@ -866,7 +866,7 @@ body.modal-open {
 .story-close:hover { color: #D8B86F; background: #42533F; transform: rotate(90deg); }
 body.story-open { overflow: hidden; }
 .story-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 30px); width: min(100%, 1100px); margin: 42px auto 0; padding-bottom: 24px; }
-.story-gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; box-shadow: 0 18px 42px rgba(43, 43, 30, .12); }
+.story-gallery img { display: block; width: 100%; height: auto; object-fit: contain; box-shadow: 0 18px 42px rgba(43, 43, 30, .12); }
 
 /* Shared action language: almond surface, green border, gold on green hover. */
 .btn-dark, .btn-outline, .hero-welcome, .btn-modal-submit {
@@ -915,20 +915,20 @@ body.story-open { overflow: hidden; }
 }
 
 .hero-venue {
-  opacity: 1;
+  opacity: 0;
   background-image: url('assets/venue/lac-carling-officiel.jpg');
   background-position: center;
-  animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
+  animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
 
 .hero-couple {
   z-index: 2;
-  opacity: 0;
+  opacity: 1;
   background-image: url('assets/source-photos/sp-1.jpg');
   background-size: 110% auto;
   background-position: center 20%;
   background-repeat: no-repeat;
-  animation: coupleFrame 16s cubic-bezier(.5,0,.5,1) infinite;
+  animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
 
 .hero-floral {
@@ -1106,10 +1106,9 @@ body.story-open { overflow: hidden; }
 }
 
 @keyframes venueFrame {
-  0% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
-  7%, 43% { opacity: 1; filter: saturate(1.03) sepia(0) brightness(1); transform: translateY(0) scale(1); }
+  0%, 43% { opacity: 1; filter: saturate(1.03) sepia(0) brightness(1); transform: translateY(0) scale(1); }
   50%, 93% { opacity: 0; filter: saturate(.72) sepia(.16) brightness(.9); transform: translateY(-16px) scale(1.035); }
-  100% { opacity: 0; filter: saturate(.7) sepia(.12) brightness(.86); transform: translateY(22px) scale(.975); }
+  100% { opacity: 1; filter: saturate(1.03) sepia(0) brightness(1); transform: translateY(0) scale(1); }
 }
 
 @keyframes coupleFrame {
@@ -1177,7 +1176,7 @@ body.story-open { overflow: hidden; }
   .story-overlay { padding: 84px 24px 34px; }
   .story-overlay-inner { display: block; }
   .story-portrait-wrap { width: min(74%, 340px); margin: 0 auto 42px; }
-  .story-portrait-wrap img { max-height: none; aspect-ratio: 4 / 5; }
+  .story-portrait-wrap img { max-height: none; aspect-ratio: auto; object-fit: contain; }
   .story-reading { margin: 0 auto; }
   .story-reading h2 { font-size: 54px; }
   .story-reading p { font-size: 16px; line-height: 1.8; }

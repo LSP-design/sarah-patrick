@@ -1302,8 +1302,8 @@ body.rsvp-open { overflow: hidden; }
   .hero-bottom-bar { gap: 7px; padding: 9px; }
   .hero-bottom-bar .hero-action { min-height: 40px; padding: 8px 9px; font-size: 10px; line-height: 1.2; }
   .rsvp-overlay { padding: 84px 24px 34px; }
-  .rsvp-overlay-inner { display: block; }
-  .rsvp-image-wrap { width: min(74%, 340px); margin: 0 auto 42px; }
+  .rsvp-overlay-inner { display: flex; flex-direction: column; }
+  .rsvp-image-wrap { width: min(74%, 340px); margin: 42px auto 0; }
   .rsvp-image-wrap img { max-height: none; aspect-ratio: 4 / 5; }
   .rsvp-reading { margin: 0 auto; }
   .rsvp-reading h2 { font-size: 54px; }
@@ -1841,4 +1841,22 @@ body.overlay-open { overflow: hidden; }
 .menu-btn:focus-visible .menu-icon span,
 .site-header .menu-btn:hover .menu-icon span,
 .site-header .menu-btn:focus-visible .menu-icon span { background: #0c0e1d; }
+
+/* Client-confirmed (appel du 16 oct.) : sur la page Réservation, la photo passe
+   SOUS le texte, contrairement à Lieu / Contact / Notre histoire qui restent
+   côte à côte. */
+.rsvp-overlay-inner {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+}
+
+.rsvp-image-wrap {
+  order: 2;
+  width: min(100%, 520px);
+  margin-top: 8px;
+}
+
+.rsvp-image-wrap img { max-height: 50vh; }
+
+.rsvp-reading { order: 1; max-width: 630px; }
 

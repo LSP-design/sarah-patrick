@@ -141,14 +141,14 @@
         <div class="section" id="section-reserve">
           <p class="section-kicker">Réservez</p>
           <p class="section-title">Confirmez votre présence</p>
-          <p class="section-copy">Entrez votre nom pour accéder aux détails de votre invitation lorsque les réponses seront ouvertes.</p>
+          <p class="section-copy">La réception est offerte au coût de 135&nbsp;$ par personne. Les places sont limitées.</p>
           <button class="btn-outline btn-primary" onclick="openRSVP()">Réservez votre place</button>
         </div>
 
         <div class="section" id="section-gifts">
           <p class="section-kicker">Cadeau aux mariés</p>
           <p class="section-title">Merci</p>
-          <p class="section-copy">Votre présence à nos côtés pour célébrer notre amour est, avant tout, le cadeau le plus spécial. Pour les personnes qui souhaitent, additionnellement, nous témoigner leur affection par un geste, une contribution monétaire serait préférable — vous pouvez envoyer un virement Interac à <a href="mailto:cadeauxmariageSP@gmail.com">cadeauxmariageSP@gmail.com</a>. Merci du fond du cœur pour votre présence à nos côtés et votre générosité !</p>
+          <p class="section-copy">Votre présence à nos côtés est, avant tout, le cadeau le plus spécial.</p>
         </div>
 
         <footer class="site-footer" id="section-contact">
@@ -236,20 +236,30 @@
   <!-- Full-screen venue page. -->
   <section class="venue-overlay page-overlay" id="venueOverlay" role="dialog" aria-modal="true" aria-labelledby="venueOverlayTitle" inert>
     <button class="venue-close" type="button" onclick="closeVenue()" aria-label="Fermer les informations sur le lieu">&times;</button>
-    <div class="venue-overlay-inner">
-      <div class="venue-portrait-wrap"><img src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling"></div>
-      <article class="venue-reading">
-        <p class="section-kicker">Le lieu</p>
+    <div class="venue-overlay-inner menu-detail-page">
+      <article class="venue-reading menu-detail-reading">
+        <p class="section-kicker">Lieu</p>
         <h2 id="venueOverlayTitle">Lac Carling</h2>
-        <p class="venue-lead">C’est dans le cadre charmant de l’Hôtel du Lac Carling que nous avons le bonheur de rassembler toutes les personnes qui nous sont chères, le 24 avril 2027. Situé au cœur d’une nature magnifique, cet endroit exceptionnel accueillera tant notre cérémonie que la réception festive.</p>
-        <div class="venue-rule" aria-hidden="true"></div>
-        <dl class="venue-facts">
-          <div><dt>Date</dt><dd>Samedi 24 avril 2027</dd></div>
-          <div><dt>Lieu</dt><dd>Hôtel du Lac Carling</dd></div>
-          <div><dt>Cadre</dt><dd>Grenville-sur-la-Rouge, Québec</dd></div>
-        </dl>
-        <p class="venue-note-detail">Adresse : 2255 Route 327 Nord, Grenville-sur-la-Rouge, QC J0V 1B0.<br>Stationnement : le stationnement extérieur et intérieur de l’hôtel est mis gratuitement à votre disposition.<br>Navette : une navette est mise, en option, à la disposition des femmes en talons hauts pour se rendre au lieu de cérémonie en bordure du lac.<br>Conseil : pour faciliter votre déplacement, il est conseillé de saisir l’adresse dans votre application de navigation (Apple Maps ou Google Maps) avant votre départ.</p>
-        <a class="btn-outline venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=H%C3%B4tel+du+Lac+Carling%2C+2255+Route+327+Nord%2C+Grenville-sur-la-Rouge%2C+QC+J0V+1B0" target="_blank" rel="noopener noreferrer">Ouvrir l’itinéraire</a>
+        <figure class="menu-detail-image menu-detail-image--wide">
+          <img src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling, devant une arche fleurie">
+        </figure>
+        <div class="menu-detail-copy venue-introduction">
+          <p>C’est dans un cadre charmant de l’<strong>Hôtel du Lac Carling</strong> que nous avons le bonheur de rassembler toutes les personnes qui nous sont chères le 24 avril 2027. Situé au cœur d’une nature magnifique, cet endroit exceptionnel accueillera tant notre <strong>cérémonie</strong> que la <strong>réception festive</strong>.</p>
+          <p>Partager ce nouveau chapitre de notre vie avec les personnes qui comptent pour nous rendra cette journée encore plus spéciale.</p>
+          <p>Nous avons hâte de vous accueillir dans ce décor somptueux de la nature pour célébrer notre union et le début de notre nouvelle vie à deux.</p>
+        </div>
+        <section class="menu-detail-card" aria-labelledby="venuePracticalTitle">
+          <p class="section-kicker">Informations pratiques</p>
+          <h3 id="venuePracticalTitle">Adresse, stationnement &amp; navette</h3>
+          <dl class="menu-detail-list">
+            <div><dt>Lieu</dt><dd>Hôtel du Lac Carling</dd></div>
+            <div><dt>Adresse</dt><dd>2255 Route 327 Nord, Grenville-sur-la-Rouge, QC J0V 1B0</dd></div>
+            <div><dt>Stationnement</dt><dd>Le stationnement extérieur et intérieur de l’hôtel est mis gratuitement à votre disposition.</dd></div>
+            <div><dt>Navette</dt><dd>Une navette est offerte, en option, aux femmes portant des talons hauts pour se rendre au lieu de la cérémonie en bordure du lac.</dd></div>
+          </dl>
+          <p class="menu-detail-note"><strong>Conseil&nbsp;:</strong> pour faciliter votre déplacement, saisissez l’adresse dans votre application de navigation (Apple Maps ou Google Maps) avant votre départ.</p>
+          <a class="btn-outline venue-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=2255+Route+327+Nord%2C+Grenville-sur-la-Rouge%2C+QC+J0V+1B0" target="_blank" rel="noopener noreferrer">Voir l’itinéraire</a>
+        </section>
       </article>
     </div>
   </section>
@@ -257,24 +267,40 @@
   <!-- Full-screen reservation page. -->
   <section class="rsvp-overlay page-overlay" id="rsvpOverlay" role="dialog" aria-modal="true" aria-labelledby="rsvpTitle" aria-describedby="rsvpDescription" inert>
     <button class="rsvp-close" type="button" onclick="closeRSVP()" aria-label="Fermer les informations de réservation">&times;</button>
-    <div class="rsvp-overlay-inner">
-      <aside class="rsvp-image-wrap"><img src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling"></aside>
-      <article class="rsvp-reading">
-        <p class="section-kicker">Sarah &amp; Patrick</p>
-        <h2 id="rsvpTitle">Réservez votre place</h2>
-        <p class="rsvp-lead" id="rsvpDescription">Pour célébrer leur union, Sarah et Patrick vous accueilleront lors d’une réception festive et chaleureuse, où les retrouvailles, les sourires et la joie feront de cette soirée un événement inoubliable.</p>
-        <dl class="rsvp-facts">
-          <div><dt>Date</dt><dd>Samedi 24 avril 2027</dd></div>
-          <div><dt>Lieu</dt><dd>Hôtel du Lac Carling</dd></div>
-          <div><dt>Coût</dt><dd>135 $ par personne</dd></div>
-        </dl>
-        <p class="rsvp-note">La salle ayant une capacité restreinte, nous vous invitons à compléter votre réservation dès que possible, en 2 étapes : 1) remplissez le formulaire de réservation ci-dessous, 2) effectuez votre paiement par virement Interac ou par carte de crédit (les coordonnées de paiement vous seront transmises).</p>
-        <form id="rsvpForm" class="rsvp-form">
-          <label class="sr-only" for="guestName">Prénom et nom</label>
-          <input type="text" class="modal-input" placeholder="Prénom et nom" id="guestName" name="guestName" autocomplete="name" maxlength="120" required>
-          <button class="btn-dark btn-modal-submit" type="submit">Accéder à mon invitation</button>
-          <p class="modal-status" id="rsvpStatus" role="status" aria-live="polite"></p>
-        </form>
+    <div class="rsvp-overlay-inner menu-detail-page">
+      <article class="rsvp-reading menu-detail-reading">
+        <p class="section-kicker">Réservez</p>
+        <h2 id="rsvpTitle">Réservation</h2>
+        <figure class="menu-detail-image menu-detail-image--wide">
+          <img src="assets/menu/reservation.png" alt="Table de réception préparée pour les invités" loading="lazy">
+        </figure>
+        <div class="menu-detail-copy">
+          <p id="rsvpDescription">Pour célébrer leur union, <strong>Sarah et Patrick</strong> vous accueilleront lors d’une réception festive et chaleureuse, où les retrouvailles, les sourires et la joie feront de cette soirée un événement inoubliable.</p>
+          <p class="rsvp-price"><span aria-hidden="true">🥂</span> Coût de la réception&nbsp;: <strong>135&nbsp;$ par personne</strong></p>
+          <p>La salle a une capacité restreinte. Nous vous invitons donc à effectuer votre réservation en deux étapes dès que possible afin de garantir votre place.</p>
+        </div>
+        <div class="reservation-steps">
+          <section class="menu-detail-card reservation-step" aria-labelledby="reservationStepOne">
+            <span class="step-number" aria-hidden="true">1</span>
+            <h3 id="reservationStepOne">Remplissez le formulaire de réservation</h3>
+            <form id="rsvpForm" class="rsvp-form">
+              <label for="guestName">Prénom et nom<input type="text" class="modal-input" id="guestName" name="guestName" autocomplete="name" maxlength="120" required></label>
+              <label for="guestEmail">Adresse courriel<input type="email" class="modal-input" id="guestEmail" name="guestEmail" autocomplete="email" maxlength="180"></label>
+              <label for="guestAttendance">Présence<select class="modal-input" id="guestAttendance" name="guestAttendance"><option value="yes">Je serai présent(e)</option><option value="no">Je ne pourrai pas être présent(e)</option></select></label>
+              <label for="partySize">Nombre de personnes<input type="number" class="modal-input" id="partySize" name="partySize" min="1" max="12" value="1" required></label>
+              <label class="rsvp-form-wide" for="dietaryNotes">Allergies ou restrictions alimentaires<textarea class="modal-input" id="dietaryNotes" name="dietaryNotes" rows="3" maxlength="1000"></textarea></label>
+              <button class="btn-dark btn-modal-submit rsvp-form-wide" type="submit">Préparer ma réponse</button>
+              <p class="modal-status rsvp-form-wide" id="rsvpStatus" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+          <section class="menu-detail-card reservation-step" aria-labelledby="reservationStepTwo">
+            <span class="step-number" aria-hidden="true">2</span>
+            <h3 id="reservationStepTwo">Effectuez votre paiement</h3>
+            <p>Par virement Interac à&nbsp;:</p>
+            <a class="menu-email" href="mailto:mariageSP@gmail.com">mariageSP@gmail.com</a>
+            <p class="payment-or">ou par carte de crédit <span class="detail-link-placeholder">ICI</span></p>
+          </section>
+        </div>
       </article>
     </div>
   </section>
@@ -295,28 +321,41 @@
 
   <section class="info-overlay page-overlay" id="giftsOverlay" role="dialog" aria-modal="true" aria-labelledby="giftsTitle" inert>
     <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page des cadeaux">&times;</button>
-    <div class="info-overlay-inner">
-      <div class="info-floral"><img src="assets/florals/peony-corner-yellow.webp" alt=""></div>
-      <article class="info-reading">
-        <p class="section-kicker">Cadeau aux mariés</p>
+    <div class="info-overlay-inner menu-detail-page">
+      <article class="info-reading menu-detail-reading">
+        <p class="section-kicker">Cadeaux</p>
         <h2 id="giftsTitle">Merci</h2>
-        <p class="info-lead">Votre présence à nos côtés compte énormément pour nous.</p>
-        <div class="info-rule" aria-hidden="true"></div>
-        <p>Votre présence à nos côtés pour célébrer notre amour est, avant tout, le cadeau le plus spécial. Pour les personnes qui souhaitent, additionnellement, nous témoigner leur affection par un geste, une contribution monétaire serait préférable, et sera grandement appréciée. Vous pouvez envoyer un virement Interac à <a href="mailto:cadeauxmariageSP@gmail.com">cadeauxmariageSP@gmail.com</a>. Merci du fond du cœur pour votre présence à nos côtés et votre générosité !</p>
+        <figure class="menu-detail-image menu-detail-image--square">
+          <img src="assets/menu/cadeaux.png" alt="Cadeau noué de rubans verts, dorés et blancs" loading="lazy">
+        </figure>
+        <div class="menu-detail-copy">
+          <p class="info-lead">Votre présence à nos côtés pour célébrer notre amour est, avant tout, le cadeau le plus spécial.</p>
+          <p>Pour les personnes qui souhaitent, additionnellement, nous témoigner leur affection par un geste, une contribution monétaire serait préférable. Cette action sera grandement appréciée tout en permettant, de façon efficace et efficiente, de se procurer les éléments spécifiques qui correspondent à nos choix.</p>
+          <p>Par simplicité, vous pouvez envoyer un virement électronique à&nbsp;:</p>
+          <a class="menu-email" href="mailto:cadeauxmariageSP@gmail.com">cadeauxmariageSP@gmail.com</a>
+          <p class="menu-thank-you">Merci du fond du cœur pour votre présence à nos côtés et votre générosité&nbsp;!</p>
+        </div>
       </article>
     </div>
   </section>
 
   <section class="info-overlay page-overlay" id="contactOverlay" role="dialog" aria-modal="true" aria-labelledby="contactTitle" inert>
     <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer la page de contact">&times;</button>
-    <div class="info-overlay-inner">
-      <div class="info-floral"><img src="assets/florals/peony-corner-yellow.webp" alt=""></div>
-      <article class="info-reading">
-        <p class="section-kicker">Rester en lien</p>
-        <h2 id="contactTitle">Contact</h2>
-        <p class="info-lead">Nous avons hâte de partager cette journée avec vous.</p>
-        <div class="info-rule" aria-hidden="true"></div>
-        <p>Pour obtenir plus d’informations, communiquez avec la personne qui vous a transmis cette invitation, ou écrivez-nous directement : nous serons ravis de répondre à vos questions. À bientôt !</p>
+    <div class="info-overlay-inner menu-detail-page">
+      <article class="info-reading menu-detail-reading">
+        <figure class="menu-detail-image menu-detail-image--floral">
+          <img src="assets/menu/contact-floral.png" alt="Composition florale blanche, jaune et verte" loading="lazy">
+        </figure>
+        <div class="contact-content">
+          <p class="section-kicker">Contact</p>
+          <h2 id="contactTitle">Contact</h2>
+          <div class="menu-detail-copy">
+            <h3>Informations additionnelles</h3>
+            <p>Pour obtenir plus d’informations, communiquez avec la personne qui vous a transmis cette invitation ou envoyez votre question à&nbsp;:</p>
+            <a class="menu-email" href="mailto:mariageS%26P@gmail.com">mariageS&amp;P@gmail.com</a>
+            <p class="menu-thank-you">Nous serons ravis de répondre à vos questions. À bientôt&nbsp;!</p>
+          </div>
+        </div>
       </article>
     </div>
   </section>

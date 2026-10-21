@@ -925,8 +925,8 @@ body.story-open { overflow: hidden; }
   z-index: 2;
   opacity: 1;
   background-image: url('assets/source-photos/sp-1.jpg');
-  background-size: cover;
-  background-position: center top;
+  background-size: 110% auto;
+  background-position: center 20%;
   background-repeat: no-repeat;
   animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }
@@ -1302,8 +1302,8 @@ body.rsvp-open { overflow: hidden; }
   .hero-bottom-bar { gap: 7px; padding: 9px; }
   .hero-bottom-bar .hero-action { min-height: 40px; padding: 8px 9px; font-size: 10px; line-height: 1.2; }
   .rsvp-overlay { padding: 84px 24px 34px; }
-  .rsvp-overlay-inner { display: flex; flex-direction: column; }
-  .rsvp-image-wrap { width: min(74%, 340px); margin: 42px auto 0; }
+  .rsvp-overlay-inner { display: block; }
+  .rsvp-image-wrap { width: min(74%, 340px); margin: 0 auto 42px; }
   .rsvp-image-wrap img { max-height: none; aspect-ratio: 4 / 5; }
   .rsvp-reading { margin: 0 auto; }
   .rsvp-reading h2 { font-size: 54px; }
@@ -1627,14 +1627,6 @@ body.overlay-open { overflow: hidden; }
   inset: 18px 4.5% 104px;
 }
 
-/* Narrower frame (taller aspect ratio) so a portrait couple photo can fill it
-   without cropping down to just head/shoulders. The venue (landscape) photo
-   still reads fine in this shape since it's centered and already wide. */
-.hero-image,
-.hero-overlay {
-  inset: 18px 16% 104px;
-}
-
 .hero-content {
   bottom: clamp(136px, 17vh, 166px);
 }
@@ -1850,21 +1842,370 @@ body.overlay-open { overflow: hidden; }
 .site-header .menu-btn:hover .menu-icon span,
 .site-header .menu-btn:focus-visible .menu-icon span { background: #0c0e1d; }
 
-/* Client-confirmed (appel du 16 oct.) : sur la page Réservation, la photo passe
-   SOUS le texte, contrairement à Lieu / Contact / Notre histoire qui restent
-   côte à côte. */
-.rsvp-overlay-inner {
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
+/* Menu pages — centered editorial layout based on the final client copy. */
+.venue-overlay,
+.rsvp-overlay,
+.info-overlay {
+  padding-top: clamp(86px, 8vw, 116px);
+  padding-bottom: clamp(48px, 7vw, 92px);
 }
 
-.rsvp-image-wrap {
-  order: 2;
-  width: min(100%, 520px);
-  margin-top: 8px;
+.venue-overlay-inner.menu-detail-page,
+.rsvp-overlay-inner.menu-detail-page,
+.info-overlay-inner.menu-detail-page {
+  display: block;
+  width: min(100%, 1040px);
+  min-height: 0;
+  margin: 0 auto;
 }
 
-.rsvp-image-wrap img { max-height: 50vh; }
+.menu-detail-reading,
+.venue-reading.menu-detail-reading,
+.rsvp-reading.menu-detail-reading,
+.info-reading.menu-detail-reading {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  color: #31362d;
+  text-align: center;
+}
 
-.rsvp-reading { order: 1; max-width: 630px; }
+.menu-detail-reading > .section-kicker {
+  display: inline-block;
+  margin: 0 auto 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #c4a36a;
+}
+
+.menu-detail-reading > h2,
+.venue-reading.menu-detail-reading h2,
+.rsvp-reading.menu-detail-reading h2,
+.info-reading.menu-detail-reading h2 {
+  margin: 0 0 clamp(30px, 5vw, 52px);
+  color: #202018;
+  font: 400 clamp(52px, 7vw, 88px)/.95 'Lobster', cursive;
+  text-align: center;
+}
+
+.menu-detail-image {
+  width: min(100%, 860px);
+  margin: 0 auto clamp(30px, 5vw, 52px);
+  overflow: hidden;
+  background: #e9e1d2;
+  box-shadow: 0 22px 55px rgba(43, 43, 30, .16);
+}
+
+.menu-detail-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-detail-image--wide {
+  aspect-ratio: 3 / 2;
+  border-radius: 180px 180px 6px 6px;
+}
+
+.menu-detail-image--square {
+  width: min(70vw, 390px);
+  aspect-ratio: 1;
+  box-shadow: 0 18px 44px rgba(43, 43, 30, .13);
+}
+
+.menu-detail-image--floral {
+  width: min(72vw, 390px);
+  aspect-ratio: 577 / 532;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu-detail-copy {
+  width: min(100%, 820px);
+  margin: 0 auto clamp(34px, 5vw, 56px);
+  text-align: center;
+}
+
+.menu-detail-copy p,
+.info-reading.menu-detail-reading .menu-detail-copy p {
+  max-width: 820px;
+  margin: 0 auto 18px;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.menu-detail-copy h3,
+.menu-detail-card h3 {
+  margin: 0 auto 24px;
+  color: #202018;
+  font: 400 clamp(27px, 3.6vw, 40px)/1.15 'Playfair Display', serif;
+}
+
+.menu-detail-card {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 54px);
+  background: rgba(251, 248, 241, .78);
+  border: 1px solid rgba(196, 163, 106, .65);
+  box-shadow: 0 18px 48px rgba(43, 43, 30, .08);
+  text-align: center;
+}
+
+.menu-detail-card > .section-kicker {
+  margin-bottom: 10px;
+}
+
+.menu-detail-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 28px;
+  border-top: 1px solid rgba(196, 163, 106, .55);
+}
+
+.menu-detail-list > div {
+  padding: 22px 18px;
+  border-bottom: 1px solid rgba(196, 163, 106, .55);
+}
+
+.menu-detail-list > div:nth-child(odd) {
+  border-right: 1px solid rgba(196, 163, 106, .55);
+}
+
+.menu-detail-list dt {
+  margin-bottom: 8px;
+  color: #927643;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.menu-detail-list dd {
+  margin: 0;
+  color: #303a30;
+  font: 400 17px/1.6 'Playfair Display', serif;
+}
+
+.menu-detail-note {
+  max-width: 760px;
+  margin: 0 auto 26px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.rsvp-price {
+  width: fit-content;
+  margin: 28px auto !important;
+  padding: 14px 24px;
+  color: #314635;
+  background: #fbf8f1;
+  border: 1px solid #c4a36a;
+  font-family: 'Playfair Display', serif;
+}
+
+.reservation-steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr);
+  gap: 24px;
+  align-items: start;
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+.reservation-step {
+  width: 100%;
+  min-height: 100%;
+}
+
+.step-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 16px;
+  color: #fffaf0;
+  background: #314635;
+  border-radius: 50%;
+  font: 700 17px 'Playfair Display', serif;
+}
+
+.rsvp-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: none;
+  text-align: left;
+}
+
+.rsvp-form label {
+  display: grid;
+  gap: 7px;
+  color: #314635;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+.rsvp-form .modal-input {
+  min-width: 0;
+  min-height: 48px;
+  border-color: rgba(49, 70, 53, .42);
+}
+
+.rsvp-form textarea.modal-input {
+  resize: vertical;
+}
+
+.rsvp-form-wide {
+  grid-column: 1 / -1;
+}
+
+.reservation-step > p,
+.payment-or {
+  margin: 0 auto 15px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.reservation-step .menu-email {
+  font-size: clamp(15px, 1.4vw, 19px);
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.menu-email {
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 auto 18px;
+  color: #314635;
+  font: 700 clamp(16px, 2.5vw, 22px)/1.4 'Playfair Display', serif;
+  overflow-wrap: anywhere;
+  text-underline-offset: 5px;
+}
+
+.detail-link-placeholder {
+  color: #a47d00;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.menu-thank-you {
+  margin-top: 28px !important;
+  color: #51604d;
+  font: italic clamp(20px, 2.6vw, 28px)/1.5 'Playfair Display', serif !important;
+}
+
+#contactOverlay .menu-detail-copy h3 {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* Contact: floral composition on the left, information on the right. */
+#contactOverlay .menu-detail-reading {
+  display: grid;
+  grid-template-columns: minmax(280px, 390px) minmax(360px, 1fr);
+  gap: clamp(46px, 7vw, 90px);
+  align-items: center;
+  text-align: left;
+}
+
+#contactOverlay .menu-detail-image--floral {
+  width: 100%;
+  margin: 0;
+}
+
+#contactOverlay .contact-content {
+  min-width: 0;
+}
+
+#contactOverlay .contact-content > .section-kicker {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #c4a36a;
+}
+
+#contactOverlay .contact-content > h2 {
+  margin: 0 0 34px;
+  color: #202018;
+  font: 400 clamp(52px, 7vw, 88px)/.95 'Lobster', cursive;
+  text-align: left;
+}
+
+#contactOverlay .menu-detail-copy,
+#contactOverlay .menu-detail-copy p,
+#contactOverlay .info-reading.menu-detail-reading .menu-detail-copy p {
+  margin-left: 0;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .venue-overlay,
+  .rsvp-overlay,
+  .info-overlay {
+    padding: 84px 18px 42px;
+  }
+
+  .menu-detail-reading > h2,
+  .venue-reading.menu-detail-reading h2,
+  .rsvp-reading.menu-detail-reading h2,
+  .info-reading.menu-detail-reading h2 {
+    margin-bottom: 30px;
+    font-size: clamp(48px, 15vw, 62px);
+  }
+
+  #contactOverlay .menu-detail-reading {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  #contactOverlay .menu-detail-image--floral {
+    width: min(82%, 330px);
+    margin: 0;
+  }
+
+  #contactOverlay .contact-content {
+    text-align: left;
+  }
+
+  .menu-detail-image--wide {
+    aspect-ratio: 4 / 3;
+    border-radius: 90px 90px 5px 5px;
+  }
+
+  .menu-detail-copy p,
+  .info-reading.menu-detail-reading .menu-detail-copy p {
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .menu-detail-card {
+    padding: 28px 18px;
+  }
+
+  .menu-detail-list,
+  .reservation-steps,
+  .rsvp-form {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-detail-list > div:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .rsvp-form-wide {
+    grid-column: auto;
+  }
+
+  .reservation-step + .reservation-step {
+    margin-top: 0;
+  }
+}
 

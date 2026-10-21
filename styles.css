@@ -1627,6 +1627,14 @@ body.overlay-open { overflow: hidden; }
   inset: 18px 4.5% 104px;
 }
 
+/* Narrower frame (taller aspect ratio) so a portrait couple photo can fill it
+   without cropping down to just head/shoulders. The venue (landscape) photo
+   still reads fine in this shape since it's centered and already wide. */
+.hero-image,
+.hero-overlay {
+  inset: 18px 16% 104px;
+}
+
 .hero-content {
   bottom: clamp(136px, 17vh, 166px);
 }

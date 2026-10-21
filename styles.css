@@ -1913,6 +1913,10 @@ body.overlay-open { overflow: hidden; }
   box-shadow: 0 18px 44px rgba(43, 43, 30, .13);
 }
 
+#giftsOverlay .menu-detail-image--square {
+  width: min(46vw, 285px);
+}
+
 .menu-detail-image--floral {
   width: min(72vw, 390px);
   aspect-ratio: 577 / 532;
@@ -2177,6 +2181,10 @@ body.overlay-open { overflow: hidden; }
   .menu-detail-image--wide {
     aspect-ratio: 4 / 3;
     border-radius: 90px 90px 5px 5px;
+  }
+
+  #giftsOverlay .menu-detail-image--square {
+    width: min(58vw, 220px);
   }
 
   .menu-detail-copy p,

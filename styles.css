@@ -1888,6 +1888,16 @@ body.overlay-open { overflow: hidden; }
   text-align: center;
 }
 
+#venueOverlay .venue-reading > h2 {
+  margin-bottom: 22px;
+}
+
+.venue-top-action {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(28px, 4vw, 44px);
+}
+
 .menu-detail-image {
   width: min(100%, 860px);
   margin: 0 auto clamp(30px, 5vw, 52px);

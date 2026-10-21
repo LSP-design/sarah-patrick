@@ -924,9 +924,12 @@ body.story-open { overflow: hidden; }
 .hero-couple {
   z-index: 2;
   opacity: 1;
-  background-image: url('assets/source-photos/sp-1.jpg');
-  background-size: 110% auto;
-  background-position: center 20%;
+  /* sp-1-wide.jpg: sp-1.jpg with the canvas extended on each side (blurred fill)
+     so the wide frame can be filled with "cover" at the same zoom level the
+     client approved, without re-cropping down to just head/shoulders. */
+  background-image: url('assets/source-photos/sp-1-wide.jpg');
+  background-size: cover;
+  background-position: center top;
   background-repeat: no-repeat;
   animation: venueFrame 16s cubic-bezier(.5,0,.5,1) infinite;
 }

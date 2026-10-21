@@ -1250,7 +1250,6 @@ body.story-open { overflow: hidden; }
 .venue-facts dt { margin-bottom: 7px; color: #927643; font-size: 9px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
 .venue-facts dd { margin: 0; color: #303a30; font: 400 18px/1.35 'Playfair Display', serif; }
 .venue-note-detail { max-width: 630px; margin: 0 0 25px; font-size: 16px; line-height: 1.75; }
-.venue-map-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 11px 22px; }
 .venue-close { position: fixed; z-index: 2; top: clamp(17px, 3vw, 38px); right: clamp(20px, 4vw, 58px); display: grid; place-items: center; width: 52px; height: 52px; padding: 0; border: 1px solid #42533F; border-radius: 50%; color: #42533F; background: rgba(251, 248, 241, .88); font: 400 42px/1 'Inter', sans-serif; cursor: pointer; transition: background .22s ease, color .22s ease, transform .22s ease; }
 .venue-close:hover { color: #D8B86F; background: #42533F; transform: rotate(90deg); }
 body.venue-open { overflow: hidden; }
@@ -1886,16 +1885,6 @@ body.overlay-open { overflow: hidden; }
   color: #202018;
   font: 400 clamp(52px, 7vw, 88px)/.95 'Lobster', cursive;
   text-align: center;
-}
-
-#venueOverlay .venue-reading > h2 {
-  margin-bottom: 22px;
-}
-
-.venue-top-action {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto clamp(28px, 4vw, 44px);
 }
 
 .menu-detail-image {

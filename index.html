@@ -117,7 +117,7 @@
           <div class="venue-editorial">
             <img class="venue-exterior" src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling, devant une arche fleurie">
           </div>
-          <button class="btn-outline" type="button" onclick="openVenue()">Voir l’itinéraire</button>
+          <button class="btn-outline" type="button" onclick="openVenue()">Découvrez les informations</button>
         </div>
 
         <div class="section story-section" id="section-story">
@@ -129,7 +129,7 @@
         <div class="section" id="section-programme">
           <p class="section-kicker">Programme</p>
           <p class="section-title">La journée</p>
-          <p class="section-copy">Les horaires de la cérémonie et de la réception seront communiqués prochainement aux invités.</p>
+          <p class="section-copy">Voici le programme officiel de cette journée mémorable.</p>
         </div>
 
         <div class="section" id="section-menu">
@@ -213,18 +213,20 @@
     <a href="#contact" class="nav-link" onclick="openInfo('contactOverlay'); return false;">Contact</a>
   </nav>
 
-  <!-- Full-screen story page, ready for the couple's longer text. -->
+  <!-- Full-screen story page. -->
   <section class="story-overlay page-overlay" id="storyOverlay" role="dialog" aria-modal="true" aria-labelledby="storyOverlayTitle" inert>
     <button class="story-close" type="button" onclick="closeStory()" aria-label="Fermer Notre histoire">&times;</button>
     <div class="story-overlay-inner">
       <div class="story-portrait-wrap"><img src="assets/source-photos/sp-1.jpg" alt="Sarah et Patrick"></div>
       <article class="story-reading" id="notre-histoire">
-        <p class="section-kicker">Sarah &amp; Patrick</p>
-        <h2 id="storyOverlayTitle">Notre histoire</h2>
-        <p class="story-lead">Le début d’un nouveau chapitre, entourés des personnes qui comptent le plus.</p>
+        <p class="section-kicker">Notre histoire</p>
+        <h2 id="storyOverlayTitle">Sarah &amp; Patrick</h2>
+        <p class="story-lead">Deux cœurs fusionnés, un amour prédestiné.</p>
+        <p class="story-verse">Ésaïe 55:11</p>
         <div class="story-rule" aria-hidden="true"></div>
-        <p>Nous sommes heureux de vous compter parmi nous pour célébrer le début de ce nouveau chapitre.</p>
-        <p class="story-placeholder">Cet espace plein écran est prêt à accueillir votre histoire complète, vos souvenirs et les mots que vous souhaitez partager avec vos invités.</p>
+        <p><strong><em>« Patrick, je te présente Sarah. »</em></strong> Ces quelques mots, prononcés avec simplicité par une amie commune, semblaient n’être qu’une présentation ordinaire. Pourtant, au-delà du naturel, cette introduction était la résultante d’une planification divine où deux personnes étaient appelées à se rencontrer.</p>
+        <p>Effectivement, durant nos échanges, une douce amitié axée sur des valeurs semblables s’est rapidement développée entre nous pour ensuite révéler des aspirations, des objectifs communs ainsi que complémentaires, comme une flamme et son bois nourricier.</p>
+        <p>Comme un rayon de soleil traverse le ciel pour éclairer la corolle des fleurs, à travers notre foi et notre connexion, nous avons été illuminés sur l’intersection de nos vies qui est le reflet d’un amour prédestiné et d’un chapitre divinement écrit. Main dans la main, nous avons choisi de prolonger cette rédaction en fusionnant nos cœurs et nos habiletés pour réaliser notre destinée.</p>
       </article>
     </div>
     <div class="story-gallery" aria-label="Photos de Sarah et Patrick">
@@ -255,7 +257,7 @@
             <div><dt>Lieu</dt><dd>Hôtel du Lac Carling</dd></div>
             <div><dt>Adresse</dt><dd>2255 Route 327 Nord, Grenville-sur-la-Rouge, QC J0V 1B0</dd></div>
             <div><dt>Stationnement</dt><dd>Le stationnement extérieur et intérieur de l’hôtel est mis gratuitement à votre disposition.</dd></div>
-            <div><dt>Navette</dt><dd>Une navette est offerte, en option, aux femmes portant des talons hauts pour se rendre au lieu de la cérémonie en bordure du lac.</dd></div>
+            <div><dt>Navette</dt><dd>Une navette est mise, optionnellement, à la disposition des femmes avec des talons hauts pour se rendre au lieu de la cérémonie en bordure du lac.</dd></div>
           </dl>
           <p class="menu-detail-note"><strong>Conseil&nbsp;:</strong> Le lieu se situe à environ 1&nbsp;h&nbsp;10 de Montréal. Pour faciliter votre déplacement, il est conseillé de saisir l’adresse dans votre application de navigation (Apple Maps ou Google Maps) avant votre départ.</p>
         </section>
@@ -299,14 +301,22 @@
 
   <section class="info-overlay page-overlay" id="programmeOverlay" role="dialog" aria-modal="true" aria-labelledby="programmeTitle" inert>
     <button class="overlay-close" type="button" onclick="closeOverlay()" aria-label="Fermer le programme">&times;</button>
-    <div class="info-overlay-inner">
-      <img class="info-cover" src="assets/venue/lac-carling-officiel.jpg" alt="Cérémonie au bord du Lac Carling">
-      <article class="info-reading">
-        <p class="section-kicker">Sarah &amp; Patrick</p>
+    <div class="info-overlay-inner programme-layout">
+      <img class="info-cover programme-cover" src="assets/menu/programme.png" alt="Programme du mariage de Sarah et Patrick, le 24 avril 2027" loading="lazy">
+      <article class="info-reading programme-reading">
+        <p class="section-kicker">Programme</p>
         <h2 id="programmeTitle">La journée</h2>
-        <p class="info-lead">Samedi 24 avril 2027 au Lac Carling, au Québec.</p>
+        <p class="programme-intro">Voici le programme officiel de cette journée mémorable&nbsp;:</p>
         <div class="info-rule" aria-hidden="true"></div>
-        <p>Nous avons hâte de vivre cette journée avec vous. Les horaires de la cérémonie et de la réception seront communiqués prochainement aux invités.</p>
+        <ol class="programme-timeline">
+          <li><time>15 h 00 – 15 h 30</time><div><h3>Accueil des invités</h3><p>Arrivée des invités et prise de place.</p></div></li>
+          <li><time>15 h 30 – 17 h 00</time><div><h3>Cérémonie de mariage</h3><p>Chants, homélie, échange des vœux et des alliances.</p></div></li>
+          <li><time>17 h 00 – 18 h 15</time><div><h3>Photos &amp; cocktails</h3><p>Photos des nouveaux mariés et cocktails de rafraîchissement.</p></div></li>
+          <li><time>18 h 30</time><div><h3>Entrée des mariés &amp; début de la réception</h3><p>Entrée du cortège, mots du parrain, bénédictions et souper.</p></div></li>
+          <li><time>21 h 45</time><div><h3>Fin du souper &amp; première danse des mariés</h3><p>Première danse des mariés.</p></div></li>
+          <li><time>22 h – 23 h 35</time><div><h3>Animation musicale</h3><p>Échange, détente et célébration.</p></div></li>
+          <li><time>23 h 45</time><div><h3>Fin de la réception</h3><p>Clôture d’une soirée inoubliable sous les étoiles.</p></div></li>
+        </ol>
       </article>
     </div>
   </section>
@@ -323,7 +333,7 @@
         <div class="menu-detail-copy">
           <p>Votre présence à nos côtés pour célébrer notre amour est, avant tout, le cadeau le plus spécial.</p>
           <p>Pour les personnes qui souhaitent, additionnellement, nous témoigner leur affection par un geste, une contribution monétaire serait préférable. Cette action sera grandement appréciée tout en permettant, de façon efficace et efficiente, de se procurer les éléments spécifiques qui correspondent à nos choix.</p>
-          <p>Par simplicité, vous pouvez envoyer un virement électronique à&nbsp;:</p>
+          <p>Par simplicité de processus, vous pouvez envoyer un virement électronique à&nbsp;:</p>
           <a class="menu-email" href="mailto:cadeauxmariageSP@gmail.com">cadeauxmariageSP@gmail.com</a>
           <p class="menu-thank-you">Merci du fond du cœur pour votre présence à nos côtés et votre générosité&nbsp;!</p>
         </div>

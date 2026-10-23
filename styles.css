@@ -2193,3 +2193,107 @@ body.overlay-open { overflow: hidden; }
   }
 }
 
+/* Official copy and programme from the client's final presentation. */
+.story-verse {
+  margin-top: -12px !important;
+  color: #961616;
+  font: 400 15px/1.4 'Playfair Display', serif !important;
+}
+
+#programmeOverlay .programme-layout {
+  grid-template-columns: minmax(250px, 360px) minmax(0, 1fr);
+  gap: clamp(42px, 6vw, 86px);
+  align-items: start;
+}
+
+#programmeOverlay .programme-cover {
+  position: sticky;
+  top: 20px;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
+  background: #fff;
+}
+
+#programmeOverlay .programme-reading {
+  max-width: 760px;
+  padding-top: 0;
+}
+
+#programmeOverlay .programme-intro {
+  max-width: 680px;
+  color: #51604d;
+  font: italic clamp(18px, 2vw, 24px)/1.5 'Playfair Display', serif;
+}
+
+.programme-timeline {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(196, 163, 106, .65);
+}
+
+.programme-timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(135px, .42fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 20px 0 20px 22px;
+  border-bottom: 1px solid rgba(196, 163, 106, .65);
+}
+
+.programme-timeline li::before {
+  content: '';
+  position: absolute;
+  top: 26px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  background: #c4a36a;
+  border-radius: 50%;
+}
+
+.programme-timeline time {
+  color: #927643;
+  font: 700 13px/1.55 'Inter', sans-serif;
+  letter-spacing: .03em;
+}
+
+.programme-timeline h3 {
+  margin: 0 0 5px;
+  color: #202018;
+  font: 700 17px/1.35 'Playfair Display', serif;
+}
+
+#programmeOverlay .programme-timeline p {
+  margin: 0;
+  color: #31362d;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 760px) {
+  #programmeOverlay .programme-layout {
+    display: block;
+  }
+
+  #programmeOverlay .programme-cover {
+    position: static;
+    width: min(72%, 260px);
+    aspect-ratio: 2 / 3;
+    margin: 0 auto 36px;
+    object-fit: contain;
+  }
+
+  #programmeOverlay .programme-reading h2 {
+    font-size: 54px;
+  }
+
+  .programme-timeline li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 18px 0 18px 20px;
+  }
+}
+

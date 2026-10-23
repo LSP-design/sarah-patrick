@@ -2148,7 +2148,7 @@ body.overlay-open { overflow: hidden; }
   }
 
   #contactOverlay .menu-detail-image--floral {
-    width: min(82%, 330px);
+    width: min(64%, 240px);
     margin: 0;
   }
 

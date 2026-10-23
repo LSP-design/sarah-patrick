@@ -120,38 +120,42 @@
           <button class="btn-outline" type="button" onclick="openVenue()">Découvrez les informations</button>
         </div>
 
-        <div class="section story-section" id="section-story">
+        <div class="section story-section home-info-section" id="section-story">
           <p class="section-kicker">Notre histoire</p>
           <p class="section-title">Sarah &amp; Patrick</p>
+          <img class="section-photo home-section-image story-preview-photo" src="assets/source-photos/sp-12.jpg" alt="Sarah et Patrick souriants ensemble" loading="lazy">
           <button class="btn-outline story-discover" type="button" onclick="openStory()">Découvrir notre histoire</button>
         </div>
 
-        <div class="section" id="section-programme">
+        <div class="section home-info-section" id="section-programme">
           <p class="section-kicker">Programme</p>
           <p class="section-title">La journée</p>
-          <p class="section-copy">Voici le programme officiel de cette journée mémorable.</p>
+          <img class="section-photo home-section-image home-programme-image" src="assets/menu/programme.png" alt="Programme du mariage de Sarah et Patrick, le 24 avril 2027" loading="lazy">
+          <button class="btn-outline" type="button" onclick="openInfo('programmeOverlay')">Découvrir le programme</button>
         </div>
 
-        <div class="section" id="section-menu">
-          <p class="section-kicker">Menu</p>
-          <p class="section-title">À table</p>
-          <p class="section-copy">Les informations sur le repas et les restrictions alimentaires seront ajoutées prochainement.</p>
-        </div>
-
-        <div class="section" id="section-reserve">
+        <div class="section home-info-section" id="section-reserve">
           <p class="section-kicker">Réservez</p>
-          <p class="section-title">Confirmez votre présence</p>
-          <p class="section-copy">La réception est offerte au coût de 135&nbsp;$ par personne. Les places sont limitées.</p>
-          <button class="btn-outline btn-primary" onclick="openRSVP()">Réservez votre place</button>
+          <p class="section-title">Réservation</p>
+          <img class="section-photo home-section-image home-reservation-image" src="assets/menu/reservation.png" alt="Table de réception avec une carte Réservé" loading="lazy">
+          <button class="btn-outline btn-primary" type="button" onclick="openRSVP()">Réservez votre place</button>
         </div>
 
-        <div class="section" id="section-gifts">
-          <p class="section-kicker">Cadeau aux mariés</p>
+        <div class="section home-info-section" id="section-gifts">
+          <p class="section-kicker">Cadeaux</p>
           <p class="section-title">Merci</p>
-          <p class="section-copy">Votre présence à nos côtés est, avant tout, le cadeau le plus spécial.</p>
+          <img class="section-photo home-section-image home-gift-image" src="assets/menu/cadeaux.png" alt="Cadeau noué de rubans verts, dorés et blancs" loading="lazy">
+          <button class="btn-outline" type="button" onclick="openInfo('giftsOverlay')">Découvrez les informations</button>
         </div>
 
-        <footer class="site-footer" id="section-contact">
+        <div class="section home-info-section" id="section-contact">
+          <p class="section-kicker">Contact</p>
+          <p class="section-title">Informations additionnelles</p>
+          <img class="section-photo home-section-image home-contact-image" src="assets/menu/contact-floral.png" alt="Composition florale blanche, jaune et verte" loading="lazy">
+          <button class="btn-outline" type="button" onclick="openInfo('contactOverlay')">Nous contacter</button>
+        </div>
+
+        <footer class="site-footer">
           <span class="footer-brand">Sarah &amp; Patrick</span>
           <span class="footer-link">24 avril 2027</span>
           <span class="footer-link">Lac Carling</span>

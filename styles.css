@@ -2297,3 +2297,73 @@ body.overlay-open { overflow: hidden; }
   }
 }
 
+/* Mobile home: every section previews its content before opening the overlay. */
+@media (max-width: 900px) {
+  #page-home > .section {
+    padding: 64px 24px;
+    background: #fbf8f1;
+    border-top: 1px solid rgba(196, 163, 106, .35);
+  }
+
+  #page-home > .section:first-child {
+    border-top: 0;
+  }
+
+  #page-home .section-kicker {
+    margin-bottom: 12px;
+  }
+
+  #page-home .section-title {
+    margin: 0 auto 28px;
+    line-height: 1.08;
+  }
+
+  #page-home .home-info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #page-home .home-section-image {
+    display: block;
+    width: min(100%, 340px);
+    height: auto;
+    margin: 0 auto 28px;
+    object-fit: contain;
+    background: transparent;
+    box-shadow: 0 18px 42px rgba(43, 43, 30, .13);
+  }
+
+  #page-home .story-preview-photo {
+    aspect-ratio: auto;
+  }
+
+  #page-home .home-programme-image {
+    width: min(72vw, 280px);
+  }
+
+  #page-home .home-reservation-image {
+    width: min(100%, 360px);
+  }
+
+  #page-home .home-gift-image,
+  #page-home .home-contact-image {
+    width: min(60vw, 230px);
+    box-shadow: 0 16px 36px rgba(43, 43, 30, .1);
+  }
+
+  #page-home .home-contact-image {
+    box-shadow: none;
+  }
+
+  #page-home .home-info-section .btn-outline {
+    width: min(100%, 310px);
+    margin: 0;
+  }
+
+  #page-home .site-footer {
+    padding: 34px 24px 42px;
+    border-top: 1px solid rgba(196, 163, 106, .35);
+  }
+}
+

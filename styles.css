@@ -2358,7 +2358,25 @@ body.overlay-open { overflow: hidden; }
 
   #page-home .home-info-section .btn-outline {
     width: min(100%, 310px);
-    margin: 0;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #page-home .section-schedule .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 310px);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #page-home .home-contact-image {
+    width: min(100%, 330px);
+    height: min(56vw, 220px);
+    object-fit: cover;
+    object-position: left bottom;
   }
 
   #page-home .site-footer {

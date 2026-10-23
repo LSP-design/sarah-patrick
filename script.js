@@ -6,13 +6,6 @@ const menuButton = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideNav');
 const navOverlay = document.getElementById('navOverlay');
 const overlays = [...document.querySelectorAll('.page-overlay')];
-const rsvpForm = document.getElementById('rsvpForm');
-const guestName = document.getElementById('guestName');
-const guestEmail = document.getElementById('guestEmail');
-const guestAttendance = document.getElementById('guestAttendance');
-const partySize = document.getElementById('partySize');
-const dietaryNotes = document.getElementById('dietaryNotes');
-const rsvpStatus = document.getElementById('rsvpStatus');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const mobileLayout = window.matchMedia('(max-width: 900px)');
 let activeOverlay = null;
@@ -84,7 +77,6 @@ function openOverlay(id) {
   target.classList.add('active');
   target.scrollTop = 0;
   document.body.classList.add('overlay-open');
-  if (id === 'rsvpOverlay') rsvpStatus.textContent = '';
   clearTimeout(focusTimer);
   focusTimer = setTimeout(() => {
     target.querySelector('.story-close, .venue-close, .rsvp-close, .overlay-close')?.focus();
@@ -137,26 +129,6 @@ function scrollToSection(sectionName) {
   }
 }
 
-function submitRSVP(event) {
-  event.preventDefault();
-  if (!guestName.value.trim()) {
-    guestName.setCustomValidity('Veuillez saisir votre prénom et votre nom.');
-    guestName.reportValidity();
-    return;
-  }
-  const attendanceLabel = guestAttendance.value === 'yes' ? 'Je serai présent(e)' : 'Je ne pourrai pas être présent(e)';
-  const subject = `Réservation au mariage — ${guestName.value.trim()}`;
-  const body = [
-    `Nom : ${guestName.value.trim()}`,
-    `Courriel : ${guestEmail.value.trim() || 'Non fourni'}`,
-    `Présence : ${attendanceLabel}`,
-    `Nombre de personnes : ${Number(partySize.value) || 1}`,
-    `Allergies ou restrictions : ${dietaryNotes.value.trim() || 'Aucune'}`
-  ].join('\n');
-  rsvpStatus.textContent = 'Votre application de courriel va s’ouvrir avec votre réponse préparée.';
-  window.location.href = `mailto:mariageSP@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
 function handleScrollAnimations() {
   const threshold = mobileLayout.matches ? window.innerHeight - 50 : contentPanel.getBoundingClientRect().bottom - 50;
   contentPanel.querySelectorAll('.page.active .section').forEach(section => {
@@ -166,11 +138,6 @@ function handleScrollAnimations() {
 
 menuButton.addEventListener('click', openMenu);
 navOverlay.addEventListener('click', () => closeMenu());
-rsvpForm.addEventListener('submit', submitRSVP);
-rsvpForm.addEventListener('input', () => {
-  guestName.setCustomValidity('');
-  rsvpStatus.textContent = '';
-});
 overlays.forEach(overlay => overlay.addEventListener('click', event => {
   if (event.target === overlay) closeOverlay();
 }));

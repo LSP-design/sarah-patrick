@@ -1910,6 +1910,10 @@ body.overlay-open { overflow: hidden; }
   border-radius: 180px 180px 6px 6px;
 }
 
+#rsvpOverlay .menu-detail-image--wide {
+  width: min(100%, 720px);
+}
+
 .menu-detail-image--square {
   width: min(70vw, 390px);
   aspect-ratio: 1;
@@ -1998,6 +2002,7 @@ body.overlay-open { overflow: hidden; }
 .menu-detail-note {
   max-width: 760px;
   margin: 0 auto 26px;
+  color: #202018;
   font-size: 15px;
   line-height: 1.7;
 }
@@ -2038,38 +2043,6 @@ body.overlay-open { overflow: hidden; }
   font: 700 17px 'Playfair Display', serif;
 }
 
-.rsvp-form {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  width: 100%;
-  max-width: none;
-  text-align: left;
-}
-
-.rsvp-form label {
-  display: grid;
-  gap: 7px;
-  color: #314635;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .05em;
-}
-
-.rsvp-form .modal-input {
-  min-width: 0;
-  min-height: 48px;
-  border-color: rgba(49, 70, 53, .42);
-}
-
-.rsvp-form textarea.modal-input {
-  resize: vertical;
-}
-
-.rsvp-form-wide {
-  grid-column: 1 / -1;
-}
-
 .reservation-step > p,
 .payment-or {
   margin: 0 auto 15px;
@@ -2081,6 +2054,13 @@ body.overlay-open { overflow: hidden; }
   font-size: clamp(15px, 1.4vw, 19px);
   white-space: nowrap;
   overflow-wrap: normal;
+}
+
+.reservation-form-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .menu-email {
@@ -2104,11 +2084,6 @@ body.overlay-open { overflow: hidden; }
   margin-top: 28px !important;
   color: #51604d;
   font: italic clamp(20px, 2.6vw, 28px)/1.5 'Playfair Display', serif !important;
-}
-
-#contactOverlay .menu-detail-copy h3 {
-  text-transform: uppercase;
-  letter-spacing: .08em;
 }
 
 /* Contact: floral composition on the left, information on the right. */
@@ -2139,7 +2114,7 @@ body.overlay-open { overflow: hidden; }
 #contactOverlay .contact-content > h2 {
   margin: 0 0 34px;
   color: #202018;
-  font: 400 clamp(52px, 7vw, 88px)/.95 'Lobster', cursive;
+  font: 400 clamp(38px, 4.8vw, 68px)/1 'Lobster', cursive;
   text-align: left;
 }
 
@@ -2186,6 +2161,10 @@ body.overlay-open { overflow: hidden; }
     border-radius: 90px 90px 5px 5px;
   }
 
+  #rsvpOverlay .menu-detail-image--wide {
+    width: min(90%, 420px);
+  }
+
   #giftsOverlay .menu-detail-image--square {
     width: min(58vw, 220px);
   }
@@ -2201,17 +2180,12 @@ body.overlay-open { overflow: hidden; }
   }
 
   .menu-detail-list,
-  .reservation-steps,
-  .rsvp-form {
+  .reservation-steps {
     grid-template-columns: 1fr;
   }
 
   .menu-detail-list > div:nth-child(odd) {
     border-right: 0;
-  }
-
-  .rsvp-form-wide {
-    grid-column: auto;
   }
 
   .reservation-step + .reservation-step {
